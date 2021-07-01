@@ -2,6 +2,7 @@
 -- This script populates the breweries table with sample data (brewer_id must exist)
 -- ************************************************************************************
 
+--Detroit
 INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city, brewery_state, brewery_zip, brewery_website) VALUES ('Brew Detroit' , 2, '1401 Abbott St', 'Detroit', 'Michigan', 48216, 'http://www.brewdetroit.com');
 INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city, brewery_state, brewery_zip, brewery_website) VALUES ('Detroit Beer Co' , 2, '1529 Broadway St Ste 100', 'Detroit', 'Michigan', 48226, 'http://www.detroitbeerco.com');
 INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city, brewery_state, brewery_zip, brewery_website) VALUES ('Brewery Faisan' , 3, '1087 Beaufait St', 'Detroit', 'Michigan', 48207, 'http://www.breweryfaisan.com');
@@ -13,6 +14,7 @@ INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_
 INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city, brewery_state, brewery_zip, brewery_website) VALUES ('Motor City Brewing Works' , 4, '470 W Canfield St', 'Detroit', 'Michigan', 48201, 'http://www.motorcitybeer.com');
 INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city, brewery_state, brewery_zip, brewery_website) VALUES ('Traffic Jam and Snug' , 2, '4268 2nd Ave', 'Detroit', 'Michigan', 48201, 'http://www.trafficjamdetroit.com');
 
+--Cleveland
 INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city, brewery_state, brewery_zip, brewery_website) VALUES ('Nano Brew Cleveland' , 3, '1859 W 25th St', 'Cleveland', 'Ohio',44113, 'http://www.nanobrewcleveland.com');
 INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city, brewery_state, brewery_zip, brewery_website) VALUES ('The Cleveland Brewery' , 2, '777 E 185th St', 'Cleveland', 'Ohio', 44119, 'http://Www.facebook.com/216brew');
 INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city, brewery_state, brewery_zip, brewery_website) VALUES ('Hofbrauhaus Cleveland / Cincinatti Restaurant Group' , 2, '1550 Chester Ave', 'Cleveland', 'Ohio', 44114, 'http://www.hofbrauhauscleveland.com');
@@ -29,6 +31,7 @@ INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_
 INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city, brewery_state, brewery_zip, brewery_website) VALUES ('Working Class Brewery' , 3, '17448 Lorain Ave','Cleveland', 'Ohio', '44111', 'http://www.workingclassbrewery.com');
 INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city, brewery_state, brewery_zip, brewery_website) VALUES ('Collision Bend Brewing Co' , 4, '1250 Old River Rd', 'Cleveland', 'Ohio', '44113', 'http://www.collisionbendbrewery.com');
 
+--Pittsburgh
 INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city, brewery_state, brewery_zip, brewery_website) VALUES ('Hofbrauhaus Pittsburgh' , 3, '2705 S Water St', 'Pittsburgh', 'Pennsylvania', '15203', 'http://www.hofbrauhauspittsburgh.com');
 INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city, brewery_state, brewery_zip, brewery_website) VALUES ('Pittsburgh Brewing Co' , 2, '3340 Liberty Ave', 'Pittsburgh', 'Pennsylvania', '15201', 'http://www.pittsburghbrewing.com');
 INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city, brewery_state, brewery_zip, brewery_website) VALUES ('Couch Brewery' , 2, '1351 Washington Blvd', 'Pittsburgh', 'Pennsylvania', '15206', 'http://www.couchbrewery.com');
