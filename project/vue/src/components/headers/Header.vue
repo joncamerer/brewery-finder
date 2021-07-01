@@ -1,6 +1,6 @@
 <template>
   <div id="header">
-    <div id="logo-title">
+    <div id="logo-title" class="header-item">
       <router-link v-bind:to="{ name: 'home' }">
         <div>
           <img id="header-logo" src="@/images/logo.png" />
@@ -8,7 +8,7 @@
       </router-link>
       <div id="header-title">Brewery Finder</div>
     </div>
-    <div id="login-user-box" v-if="displayLogin">
+    <div id="login-user-box" class="header-item" v-if="displayLogin">
       <header-login v-if="$store.state.token == ''" />
       <user-card v-else />
     </div>
@@ -34,13 +34,19 @@ export default {
   background: red;
 
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 0% 3%;
   align-items: center;
+}
+
+.header-item {
+  padding: 1% 0%;
 }
 
 #logo-title {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
+  min-width: 44%;
 }
 
 #login-user-box {
@@ -48,6 +54,7 @@ export default {
 }
 
 #header-title {
+  padding-left: 2%;
   font-size: var(--main-header-text);
   color: var(--color-six);
 }

@@ -115,6 +115,7 @@ export default {
 .login-item {
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
 }
 
 .login-label {
@@ -122,7 +123,8 @@ export default {
 }
 
 .login-input {
-  max-width: 75%;
+  min-width: 0%;
+  margin-left: 2%;
 }
 
 #signin-bar {
