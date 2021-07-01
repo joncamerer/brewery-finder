@@ -74,12 +74,11 @@ export default {
 </script>
 
 <style>
-form {
+.brew-form {
   display: flex;
   flex-direction: column;
   width: 33%;
-}
-.brew-form {
+
   margin-left: 40pxpx;
   border: 2px solid black;
   border-radius: 15px;

@@ -133,14 +133,6 @@ export default {};
   margin-left: 40px;
 }
 
-body {
-  background-image: url("./images/beer-hops-background.png");
-  background-size: 100%;
-  background-repeat: repeat-y;
-  background-repeat: repeat-y 2;
-  font-family: "Papyrus";
-}
-
 .text {
   color: white;
 }
@@ -272,6 +264,30 @@ body {
   margin-right: 92%;
   padding: 0.5%;
   font-size: 30px;
+}
+
+/* STYLES WHICH BELONG IN APP.JS */
+:root {
+  --color-one: #fff897;
+  --color-two: #fae96f;
+  --color-three: #f6c101;
+  --color-four: #ec9d00;
+  --color-five: #df8d03;
+  --color-six: #c96e12;
+
+  --header-title: 50px;
+}
+
+body {
+  /*
+  background-image: url("./images/beer-hops-background.png");
+  background-size: 100%;
+  background-repeat: repeat-y;
+  background-repeat: repeat-y 2;
+  */
+
+  background-color: var(--color-one);
+  font-family: "Papyrus";
 }
 
 .sidebar-scrollbox {

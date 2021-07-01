@@ -8,9 +8,10 @@
       </router-link>
       <div id="header-title">Brewery Finder</div>
     </div>
-
-    <header-login v-if="$store.state.token == ''" />
-    <user-card v-else />
+    <div id="login-user-box">
+      <header-login v-if="$store.state.token == ''" />
+      <user-card v-else />
+    </div>
   </div>
 </template>
 
@@ -26,9 +27,12 @@ export default {
 <style>
 #header {
   background: red;
+  width: 100%;
+
   display: flex;
   justify-content: space-around;
   align-items: center;
+  overflow: auto;
 }
 
 #logo-title {
@@ -36,10 +40,13 @@ export default {
   align-items: center;
 }
 
+#login-user-box {
+  display: flex;
+}
+
 #header-title {
   font: bold;
-  font-size: 50px;
-  background-size: cover;
+  font-size: var(--header-title);
   color: black;
 }
 

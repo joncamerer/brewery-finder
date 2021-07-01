@@ -39,7 +39,7 @@ export default {
 #home-grid {
   max-height: 100%;
   display: grid;
-  grid-gap: 3%;
+  grid-gap: 1%;
 
   grid-template-columns: 3fr 2fr;
   grid-template-areas:
@@ -50,9 +50,7 @@ export default {
 
 .list-title {
   font-size: 25px;
-  color: white;
-  background-color: rgb(92, 76, 43);
-  border-radius: 20px;
-  padding: 1%;
+  color: var(--color-two);
+  background-color: var(--color-five);
 }
 </style>

@@ -86,13 +86,21 @@ export default {
 </script>
 
 <style>
+#login {
+  display: flex;
+  border: 2px solid lawngreen;
+}
+
 .form-signin {
-  width: 250px;
+  min-width: 0%;
 
   background-color: rgb(247, 243, 240);
   border: 3px solid black;
   border-radius: 12px;
+
   padding: 3%;
+  margin: 1% 0%;
+
   opacity: 90%;
 }
 
@@ -112,6 +120,10 @@ export default {
 
 .login-label {
   font-size: 12px;
+}
+
+.login-input {
+  max-width: 75%;
 }
 
 #signin-bar {
