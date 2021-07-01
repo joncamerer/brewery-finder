@@ -3,6 +3,14 @@
 -- ************************************************************************************
 
 --Chicago
+INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city, brewery_state, brewery_zip, brewery_website) VALUES ('Old Irving Brewing Co' , 2, '4419 W Montrose', 'Chicago', 'Illinois', 60641, 'http://www.oldirvingbrewing.com');
+INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city, brewery_state, brewery_zip, brewery_website) VALUES ('Half Acre - Balmoral Beer Garden' , 2, '2050 W Balmoral Avr', 'Chicago', 'Illinois', 60625, 'http://www.halfacrebeer.com');
+INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city, brewery_state, brewery_zip, brewery_website) VALUES ('Illuminated Brew Works' , 2, '6186 N Northwest Hwy', 'Chicago', 'Illinois', 60631, 'http://www.ibw-chicago.com');
+INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city, brewery_state, brewery_zip, brewery_website) VALUES ('Begyle Brewing' , 2, '1800 W Cuyler Ave', 'Chicago', 'Illinois', 60613, 'http://www.begylebrewing.com');
+INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city, brewery_state, brewery_zip, brewery_website) VALUES ('Dovetail Brewery' , 2, '1800 W Belle Plaine Ave', 'Chicago', 'Illinois', 60613, 'http://www.dovetailbrewery.com');
+INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city, brewery_state, brewery_zip, brewery_website) VALUES ('Empirical Brewery' , 2, '1801 W Foster Ave', 'Chicago', 'Illinois', 60640, 'http://www.empiricalbrewery.com');
+INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city, brewery_state, brewery_zip, brewery_website) VALUES ('Local Option' , 2, '1102 W Webster Ave', 'Chicago', 'Illinois', 60614, 'http://www.localoptionbier.com');
+INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city, brewery_state, brewery_zip, brewery_website) VALUES ('Off Color Brewing - The Mousetrap' , 2, '1460 N Kingsbury St', 'Chicago', 'Illinois', 60642, 'http://www.offcolorbrewing.com');
 
 --Detroit
 INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city, brewery_state, brewery_zip, brewery_website) VALUES ('Brew Detroit' , 2, '1401 Abbott St', 'Detroit', 'Michigan', 48216, 'http://www.brewdetroit.com');
