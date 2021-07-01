@@ -88,7 +88,6 @@ export default {
 <style>
 #login {
   display: flex;
-  border: 2px solid lawngreen;
 }
 
 .form-signin {

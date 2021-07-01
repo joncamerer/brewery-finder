@@ -275,19 +275,13 @@ export default {};
   --color-five: #df8d03;
   --color-six: #c96e12;
 
-  --header-title: 50px;
+  --main-header-text: 50px;
+  --section-header-text: 25px;
 }
 
 body {
-  /*
-  background-image: url("./images/beer-hops-background.png");
-  background-size: 100%;
-  background-repeat: repeat-y;
-  background-repeat: repeat-y 2;
-  */
-
   background-color: var(--color-one);
-  font-family: "Papyrus";
+  font-family: "Helvitica";
 }
 
 .sidebar-scrollbox {

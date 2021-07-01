@@ -49,7 +49,7 @@ export default {
 }
 
 .list-title {
-  font-size: 25px;
+  font-size: var(--section-header-text);
   color: var(--color-two);
   background-color: var(--color-five);
 }

@@ -1,6 +1,7 @@
 <template>
   <div>
-    <registration-header class="reg-header" />
+    <Header />
+
     <div id="register" class="text-center">
       <form class="form-register" @submit.prevent="register">
         <h1 class="h3 mb-3 font-weight-normal">Create Account</h1>
@@ -57,11 +58,11 @@
 </template>
 
 <script>
-import RegistrationHeader from "../components/RegistrationHeader.vue";
+import Header from "../components/headers/Header.vue";
 import authService from "../services/AuthService";
 
 export default {
-  components: { RegistrationHeader },
+  components: { Header },
   name: "register",
   data() {
     return {

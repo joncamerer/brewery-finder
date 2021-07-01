@@ -8,7 +8,7 @@
       </router-link>
       <div id="header-title">Brewery Finder</div>
     </div>
-    <div id="login-user-box">
+    <div id="login-user-box" v-if="displayLogin">
       <header-login v-if="$store.state.token == ''" />
       <user-card v-else />
     </div>
@@ -21,18 +21,21 @@ import UserCard from "@/components/UserCard.vue";
 
 export default {
   components: { HeaderLogin, UserCard },
+  computed: {
+    displayLogin() {
+      return this.$route.name !== "register";
+    },
+  },
 };
 </script>
 
 <style>
 #header {
   background: red;
-  width: 100%;
 
   display: flex;
   justify-content: space-around;
   align-items: center;
-  overflow: auto;
 }
 
 #logo-title {
@@ -45,9 +48,8 @@ export default {
 }
 
 #header-title {
-  font: bold;
-  font-size: var(--header-title);
-  color: black;
+  font-size: var(--main-header-text);
+  color: var(--color-six);
 }
 
 #header-logo {
