@@ -31,7 +31,7 @@ INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_
 INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city, brewery_state, brewery_zip, brewery_website) VALUES ('Working Class Brewery' , 3, '17448 Lorain Ave','Cleveland', 'Ohio', '44111', 'http://www.workingclassbrewery.com');
 INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city, brewery_state, brewery_zip, brewery_website) VALUES ('Collision Bend Brewing Co' , 4, '1250 Old River Rd', 'Cleveland', 'Ohio', '44113', 'http://www.collisionbendbrewery.com');
 
---Pittsburgh
+--Pittsburgh  
 INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city, brewery_state, brewery_zip, brewery_website) VALUES ('Hofbrauhaus Pittsburgh' , 3, '2705 S Water St', 'Pittsburgh', 'Pennsylvania', '15203', 'http://www.hofbrauhauspittsburgh.com');
 INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city, brewery_state, brewery_zip, brewery_website) VALUES ('Pittsburgh Brewing Co' , 2, '3340 Liberty Ave', 'Pittsburgh', 'Pennsylvania', '15201', 'http://www.pittsburghbrewing.com');
 INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city, brewery_state, brewery_zip, brewery_website) VALUES ('Couch Brewery' , 2, '1351 Washington Blvd', 'Pittsburgh', 'Pennsylvania', '15206', 'http://www.couchbrewery.com');
