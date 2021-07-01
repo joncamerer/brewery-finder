@@ -68,17 +68,6 @@ export default {};
   opacity: 90%;
 }
 
-.user-info {
-  display: flex;
-  flex-direction: column;
-  border: 2px solid black;
-  padding: 2.25em;
-  width: 150px;
-  background-color: white;
-  border-radius: 129%;
-  opacity: 90%;
-}
-
 .reviews {
   font-size: 1.5em;
 }
@@ -277,6 +266,8 @@ export default {};
 
   --main-header-text: 50px;
   --section-header-text: 25px;
+  --card-header: 25px;
+  --body-text: 12px;
 }
 
 body {

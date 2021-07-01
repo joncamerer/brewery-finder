@@ -95,7 +95,6 @@ export default {
 
   background-color: rgb(247, 243, 240);
   border: 3px solid black;
-  border-radius: 12px;
 
   padding: 3%;
   margin: 1% 0%;
@@ -108,8 +107,7 @@ export default {
 }
 
 #login-title {
-  font-size: 25px;
-  margin: 0px;
+  font-size: var(--section-header-text);
 }
 
 .login-item {
@@ -119,7 +117,7 @@ export default {
 }
 
 .login-label {
-  font-size: 12px;
+  font-size: var(--body-text);
 }
 
 .login-input {
