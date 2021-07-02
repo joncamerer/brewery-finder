@@ -8,7 +8,7 @@
       </router-link>
       <div id="header-title">Brewery Finder</div>
     </div>
-    <div id="login-user-box" v-if="displayLogin">
+    <div v-if="displayLogin">
       <header-login v-if="$store.state.token == ''" />
       <header-user v-else />
     </div>
@@ -68,11 +68,5 @@ export default {
 
 #header-logo:hover {
   border: 3px solid green;
-}
-
-#login-user-box {
-  display: flex;
-
-  justify-content: flex-end;
 }
 </style>

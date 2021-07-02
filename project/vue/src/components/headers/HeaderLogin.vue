@@ -96,7 +96,7 @@ export default {
   background-color: rgb(247, 243, 240);
   border: 3px solid black;
 
-  padding: 3%;
+  padding: 3% 15px 3% 30px;
   margin: 1% 0%;
 
   opacity: 90%;

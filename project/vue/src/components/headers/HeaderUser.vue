@@ -52,6 +52,8 @@ export default {
   background-color: white;
   border: 3px solid black;
 
+  padding: 3% 15px 3% 30px;
+
   opacity: 90%;
 }
 
@@ -64,6 +66,11 @@ export default {
   font-size: var(--section-header-text);
 
   white-space: nowrap;
+}
+
+#user-initial {
+  padding-right: 30px;
+  font-size: var(--section-header-text);
 }
 
 .header-user-item {
