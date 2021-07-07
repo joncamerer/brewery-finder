@@ -1,51 +1,75 @@
 <template>
-  <div id="brewery-list">
-    <div>
-      <form class="brew-form" v-on:submit.prevent="addBrewery()">
-        <label for="brewery-name">Brewery Name</label>
+  <div>
+    <form id="new-brewery-form" v-on:submit.prevent="addBrewery()">
+      <div class="new-brewery-item">
+        <label for="new-brewery-name">Brewery Name:</label>
         <input
+          id="new-brewery-name"
+          class="new-brewery-input"
           type="text"
-          name="brewery-name"
+          placeholder="Name"
           v-model="newBrewery.breweryName"
         />
+      </div>
 
-        <label for="brewery-address"> Address</label>
+      <div class="new-brewery-item">
+        <label for="new-brewery-address"> Street Address:</label>
         <input
+          id="new-brewery-address"
+          class="new-brewery-input"
+          type="text"
+          placeholder="Street Address"
           v-model="newBrewery.breweryStreetAddress"
-          type="text"
-          name="brewery-address"
         />
+      </div>
 
-        <label for="brewery-city"> City</label>
+      <div class="new-brewery-item">
+        <label for="new-brewery-city"> City:</label>
         <input
+          id="new-brewery-city"
+          class="new-brewery-input"
+          type="text"
+          placeholder="City"
           v-model="newBrewery.breweryCity"
-          type="text"
-          name="brewery-city"
         />
+      </div>
 
-        <label for="brewery-state"> State</label>
+      <div class="new-brewery-item">
+        <label for="new-brewery-state"> State:</label>
         <input
+          id="new-brewery-state"
+          class="new-brewery-input"
+          type="text"
+          placeholder="State"
           v-model="newBrewery.breweryState"
-          type="text"
-          name="brewery-state"
         />
+      </div>
 
-        <label for="brewery-zip">Zip</label>
+      <div class="new-brewery-item">
+        <label for="new-brewery-zip">Zip:</label>
         <input
+          id="new-brewery-zip"
+          class="new-brewery-input"
+          type="text"
+          placeholder="Zip Code"
           v-model="newBrewery.breweryZipCode"
-          type="text"
-          name="brewery-zip"
         />
+      </div>
 
-        <label for="brewery-website">Website</label>
+      <div class="new-brewery-item">
+        <label for="new-brewery-website">Website:</label>
         <input
-          v-model="newBrewery.breweryWebsite"
+          id="new-brewery-website"
+          class="new-brewery-input"
           type="text"
-          name="brewery-website"
+          placeholder="Website"
+          v-model="newBrewery.breweryWebsite"
         />
-        <button type="submit" class="btn save">Save Brewery</button>
-      </form>
-    </div>
+      </div>
+      <div class="new-brewery-item">
+        <button id="new-brewery-submission" type="submit">Save Brewery</button>
+      </div>
+    </form>
   </div>
 </template>
 
@@ -64,7 +88,6 @@ export default {
     addBrewery() {
       breweryService.create(this.newBrewery).then((response) => {
         if (response.status === 201) {
-          this.showForm = false;
           this.newBrewery = {};
           this.$router.go();
         }
@@ -75,30 +98,14 @@ export default {
 </script>
 
 <style>
-#brewery-list {
+#new-brewery-form {
   display: flex;
   flex-direction: column;
+
+  font-size: 17px;
 }
 
-.brew-form {
-  display: flex;
-  flex-direction: column;
-  width: 33%;
-
-  margin-left: 40pxpx;
-  border: 2px solid black;
-  border-radius: 15px;
-  background-color: rgb(247, 221, 104);
-  font-weight: bolder;
-  font-size: 17px;
-  padding: 1%;
-  padding-left: 3%;
-  border-bottom: 6px solid black;
-  border-right: 6px solid black;
-  border-top: 0px;
-  border-left: 0px;
-  filter: blur(0px);
-  opacity: 90%;
-  width: 500px;
+.new-brewery-input {
+  flex-grow: 1;
 }
 </style>

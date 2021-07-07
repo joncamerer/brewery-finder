@@ -1,9 +1,10 @@
 <template>
   <div id="brewery-list">
-    <div id="brewery-list-title-box" ref="titleForm">
+    <div id="brewery-list-title-box">
       <h1 id="brewery-list-title" class="list-title">Breweries:</h1>
       <button
-        id="show-add-brewery"
+        id="toggle-add-button"
+        class="list-title-button"
         v-if="
           $store.state.token != '' &&
           $store.state.user.accountType == 'Administrator'
@@ -14,10 +15,17 @@
       </button>
     </div>
 
-    <new-brewery-form v-if="showAddBrewery" />
+    <div id="new-brewery-form-box" v-if="showAddBrewery">
+      <new-brewery-form />
+      <div class="new-brewery-item">
+        <button id="cancel-new-brewery-button" v-on:click="toggleAddBrewery">
+          Cancel Brewery
+        </button>
+      </div>
+    </div>
 
-    <div v-else>
-      <div class="search-bar" ref="search">
+    <div id="list-breweries-box" v-else>
+      <div class="search-bar">
         <label for="search-name">Search: </label>
         <input
           id="search-name"
@@ -98,6 +106,11 @@ export default {
       });
     },
   },
+  methods: {
+    toggleAddBrewery() {
+      this.showAddBrewery = !this.showAddBrewery;
+    },
+  },
 };
 </script>
 
@@ -118,11 +131,21 @@ export default {
   flex-grow: 1;
 }
 
-#show-add-brewery {
-  font-size: var(--section-header-text);
+#toggle-add-button {
   min-width: 40px;
+}
 
-  margin-bottom: 0.67em;
+#new-brewery-form-box {
+  display: flex;
+  flex-direction: column;
+  padding: 1%;
+  background-color: rgb(247, 221, 104);
+}
+
+.new-brewery-item {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 3%;
 }
 
 .search-bar {

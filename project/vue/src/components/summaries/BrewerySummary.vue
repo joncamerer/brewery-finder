@@ -2,13 +2,16 @@
   <div
     class="brewery-summary-card"
     @mouseover="showButtons = true"
-    @mouseleave="showButtons = false"
+    @mouseleave="showButtons = true"
   >
-    <div>
-      <h2>{{ brewery.breweryName }}</h2>
-      <h2>{{ brewery.breweryCity + ", " + brewery.breweryState }}</h2>
+    <div id="brewery-summary-info">
+      <h1 id="brewery-summary-name">{{ brewery.breweryName }}</h1>
+      <h1 id="brewery-summary-location">
+        {{ brewery.breweryCity + ", " + brewery.breweryState }}
+      </h1>
     </div>
-    <div v-show="showButtons">
+
+    <div id="view-brewery-details-button" v-show="showButtons">
       <button v-on:click="viewDetails()" v-if="$store.state.token != ''">
         View Details
       </button>
@@ -25,7 +28,7 @@ export default {
   },
   data() {
     return {
-      showButtons: false,
+      showButtons: true,
     };
   },
   methods: {
@@ -47,8 +50,10 @@ export default {
   margin-bottom: 3%;
 }
 
-.brewery-summary-card button {
-  height: 20px;
+#brewery-summary-info {
+  display: flex;
+  flex-direction: column;
+  padding-left: 3%;
 }
 
 /* card temp border */
