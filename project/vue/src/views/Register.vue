@@ -8,41 +8,53 @@
         <div role="alert" v-if="registrationErrors">
           {{ registrationErrorMsg }}
         </div>
-        <label for="username">Username</label>
-        <input
-          type="text"
-          id="username"
-          placeholder="Username"
-          v-model="user.username"
-          required
-          autofocus
-        />
-        <label for="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          placeholder="Password"
-          v-model="user.password"
-          required
-        />
-        <input
-          type="password"
-          id="confirmPassword"
-          placeholder="Confirm Password"
-          v-model="user.confirmPassword"
-          required
-        />
-        <label for="account-type">Account Type</label>
-        <select name="account-type" v-model="user.accountType">
-          <option value="">--Please select a role</option>
-          <option value="Beer Lover">Beer Lover</option>
-          <option value="Brewer">Brewer</option>
-          <option value="Administrator">Administrator</option>
-        </select>
-        <label for="user-location">Location:</label>
-        <input name="user-location" type="text" v-model="user.userLocation" />
-        <router-link :to="{ name: 'home' }">Have an account?</router-link>
-        <button type="submit">Create Account</button>
+        <div class="registration-item">
+          <label for="username">Username:</label>
+          <input
+            type="text"
+            id="username"
+            placeholder="Username"
+            v-model="user.username"
+            required
+            autofocus
+          />
+        </div>
+        <div class="registration-item">
+          <label for="password">Password:</label>
+          <div>
+            <input
+              type="password"
+              id="password"
+              placeholder="Password"
+              v-model="user.password"
+              required
+            />
+            <input
+              type="password"
+              id="confirmPassword"
+              placeholder="Confirm Password"
+              v-model="user.confirmPassword"
+              required
+            />
+          </div>
+        </div>
+        <div class="registration-item">
+          <label for="account-type">Account Type:</label>
+          <select name="account-type" v-model="user.accountType">
+            <option value="">--Please select a role</option>
+            <option value="Beer Lover">Beer Lover</option>
+            <option value="Brewer">Brewer</option>
+            <option value="Administrator">Administrator</option>
+          </select>
+        </div>
+        <div class="registration-item">
+          <label for="user-location">Location:</label>
+          <input name="user-location" type="text" v-model="user.userLocation" />
+        </div>
+        <div class="registration-item">
+          <router-link :to="{ name: 'home' }">Have an account?</router-link>
+          <button type="submit">Create Account</button>
+        </div>
       </form>
     </div>
   </div>
@@ -134,5 +146,11 @@ export default {
   background-color: rgb(247, 243, 240);
   border: 3px solid black;
   padding: 3%;
+}
+
+.registration-item {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 3%;
 }
 </style>

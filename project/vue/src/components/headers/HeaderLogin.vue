@@ -14,7 +14,7 @@
       </div>
 
       <div class="login-item">
-        <label for="username" class="login-label">User: </label>
+        <label for="username" class="login-label">Username: </label>
         <input
           type="text"
           id="username"
@@ -98,12 +98,6 @@ export default {
 
   padding: 3% 15px 3% 30px;
   margin: 1% 0%;
-
-  opacity: 90%;
-}
-
-.form-signin:hover {
-  opacity: 100%;
 }
 
 #login-title {

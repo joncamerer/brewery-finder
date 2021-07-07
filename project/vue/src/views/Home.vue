@@ -42,6 +42,7 @@ export default {
   grid-gap: 1%;
 
   grid-template-columns: 3fr 2fr;
+  grid-template-rows: 170px auto auto;
   grid-template-areas:
     "header header"
     "breweries top-rated"
