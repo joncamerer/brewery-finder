@@ -1,6 +1,6 @@
 <template>
   <div id="brewery-list">
-    <div id="brewery-list-title-form" ref="titleForm">
+    <div id="brewery-list-title-box" ref="titleForm">
       <h1 id="brewery-list-title" class="list-title">Breweries:</h1>
       <button
         id="show-add-brewery"
@@ -16,34 +16,36 @@
 
     <new-brewery-form v-if="showAddBrewery" />
 
-    <div v-else class="search-bar" ref="search">
-      <label for="search-name">Search: </label>
-      <input
-        id="search-name"
-        type="text"
-        placeholder="Brewery Name"
-        v-model="filter.breweryName"
-      />
-      <input
-        id="search-city"
-        type="text"
-        placeholder="City"
-        v-model="filter.breweryCity"
-      />
-      <input
-        id="search-state"
-        type="text"
-        placeholder="State"
-        v-model="filter.breweryState"
-      />
-    </div>
+    <div v-else>
+      <div class="search-bar" ref="search">
+        <label for="search-name">Search: </label>
+        <input
+          id="search-name"
+          type="text"
+          placeholder="Brewery Name"
+          v-model="filter.breweryName"
+        />
+        <input
+          id="search-city"
+          type="text"
+          placeholder="City"
+          v-model="filter.breweryCity"
+        />
+        <input
+          id="search-state"
+          type="text"
+          placeholder="State"
+          v-model="filter.breweryState"
+        />
+      </div>
 
-    <div id="brewery-card-scrollbox">
-      <brewery-summary
-        v-for="brewery in filteredBreweries"
-        v-bind:key="brewery.id"
-        v-bind:brewery="brewery"
-      />
+      <div id="brewery-card-scrollbox">
+        <brewery-summary
+          v-for="brewery in filteredBreweries"
+          v-bind:key="brewery.id"
+          v-bind:brewery="brewery"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -107,7 +109,7 @@ export default {
   height: max-content;
 }
 
-#brewery-list-title-form {
+#brewery-list-title-box {
   display: flex;
   justify-content: space-between;
 }
@@ -118,6 +120,7 @@ export default {
 
 #show-add-brewery {
   font-size: var(--section-header-text);
+  min-width: 40px;
 
   margin-bottom: 0.67em;
 }
