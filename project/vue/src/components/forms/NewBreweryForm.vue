@@ -1,49 +1,51 @@
 <template>
-  <div>
-    <button v-on:click="showForm = !showForm">
-      {{ showForm ? "-" : "+" }}
-    </button>
+  <div id="brewery-list">
+    <div>
+      <form class="brew-form" v-on:submit.prevent="addBrewery()">
+        <label for="brewery-name">Brewery Name</label>
+        <input
+          type="text"
+          name="brewery-name"
+          v-model="newBrewery.breweryName"
+        />
 
-    <form
-      class="brew-form"
-      v-show="showForm"
-      v-on:submit.prevent="addBrewery()"
-    >
-      <label for="brewery-name">Brewery Name</label>
-      <input type="text" name="brewery-name" v-model="newBrewery.breweryName" />
+        <label for="brewery-address"> Address</label>
+        <input
+          v-model="newBrewery.breweryStreetAddress"
+          type="text"
+          name="brewery-address"
+        />
 
-      <label for="brewery-address"> Address</label>
-      <input
-        v-model="newBrewery.breweryStreetAddress"
-        type="text"
-        name="brewery-address"
-      />
+        <label for="brewery-city"> City</label>
+        <input
+          v-model="newBrewery.breweryCity"
+          type="text"
+          name="brewery-city"
+        />
 
-      <label for="brewery-city"> City</label>
-      <input v-model="newBrewery.breweryCity" type="text" name="brewery-city" />
+        <label for="brewery-state"> State</label>
+        <input
+          v-model="newBrewery.breweryState"
+          type="text"
+          name="brewery-state"
+        />
 
-      <label for="brewery-state"> State</label>
-      <input
-        v-model="newBrewery.breweryState"
-        type="text"
-        name="brewery-state"
-      />
+        <label for="brewery-zip">Zip</label>
+        <input
+          v-model="newBrewery.breweryZipCode"
+          type="text"
+          name="brewery-zip"
+        />
 
-      <label for="brewery-zip">Zip</label>
-      <input
-        v-model="newBrewery.breweryZipCode"
-        type="text"
-        name="brewery-zip"
-      />
-
-      <label for="brewery-website">Website</label>
-      <input
-        v-model="newBrewery.breweryWebsite"
-        type="text"
-        name="brewery-website"
-      />
-      <button type="submit" class="btn save">Save Brewery</button>
-    </form>
+        <label for="brewery-website">Website</label>
+        <input
+          v-model="newBrewery.breweryWebsite"
+          type="text"
+          name="brewery-website"
+        />
+        <button type="submit" class="btn save">Save Brewery</button>
+      </form>
+    </div>
   </div>
 </template>
 
@@ -53,7 +55,6 @@ import breweryService from "@/services/BreweryService";
 export default {
   data() {
     return {
-      showForm: false,
       newBrewery: {
         brewerId: this.$store.state.user.id,
       },
@@ -74,6 +75,11 @@ export default {
 </script>
 
 <style>
+#brewery-list {
+  display: flex;
+  flex-direction: column;
+}
+
 .brew-form {
   display: flex;
   flex-direction: column;

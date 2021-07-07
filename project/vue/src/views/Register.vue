@@ -11,8 +11,8 @@
         <div class="registration-item">
           <label for="username">Username:</label>
           <input
-            type="text"
             id="username"
+            type="text"
             placeholder="Username"
             v-model="user.username"
             required
@@ -23,15 +23,15 @@
           <label for="password">Password:</label>
           <div>
             <input
-              type="password"
               id="password"
+              type="password"
               placeholder="Password"
               v-model="user.password"
               required
             />
             <input
-              type="password"
               id="confirmPassword"
+              type="password"
               placeholder="Confirm Password"
               v-model="user.confirmPassword"
               required
@@ -40,7 +40,7 @@
         </div>
         <div class="registration-item">
           <label for="account-type">Account Type:</label>
-          <select name="account-type" v-model="user.accountType">
+          <select id="account-type" v-model="user.accountType">
             <option value="">--Please select a role</option>
             <option value="Beer Lover">Beer Lover</option>
             <option value="Brewer">Brewer</option>
@@ -49,9 +49,14 @@
         </div>
         <div class="registration-item">
           <label for="user-location">Location:</label>
-          <input name="user-location" type="text" v-model="user.userLocation" />
+          <input
+            id="user-location"
+            type="text"
+            placeholder="Location"
+            v-model="user.userLocation"
+          />
         </div>
-        <div class="registration-item">
+        <div id="registration-submission">
           <router-link :to="{ name: 'home' }">Have an account?</router-link>
           <button type="submit">Create Account</button>
         </div>
@@ -152,5 +157,10 @@ export default {
   display: flex;
   flex-direction: column;
   padding-bottom: 3%;
+}
+
+#registration-submission {
+  display: flex;
+  justify-content: space-between;
 }
 </style>

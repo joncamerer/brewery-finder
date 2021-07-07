@@ -1,25 +1,45 @@
 <template>
   <div id="brewery-list">
-    <h1 class="list-title">Breweries:</h1>
-
-    <div class="search-bar">
-      <label for="" class="search-label">Name: </label>
-      <input type="text" v-model="filter.breweryName" />
-      <label for="" class="search-label">City: </label>
-      <input type="text" v-model="filter.breweryCity" />
-      <label for="" class="search-label">State: </label>
-      <input type="text" v-model="filter.breweryState" />
-    </div>
-
-    <div id="brewery-card-scrollbox">
-      <new-brewery-form
+    <div id="brewery-list-title-form" ref="titleForm">
+      <h1 id="brewery-list-title" class="list-title">Breweries:</h1>
+      <button
+        id="show-add-brewery"
         v-if="
           $store.state.token != '' &&
           $store.state.user.accountType == 'Administrator'
         "
+        v-on:click="showAddBrewery = !showAddBrewery"
+      >
+        {{ showAddBrewery ? "-" : "+" }}
+      </button>
+    </div>
+
+    <new-brewery-form v-if="showAddBrewery" />
+
+    <div v-else class="search-bar" ref="search">
+      <label for="search-name">Search: </label>
+      <input
+        id="search-name"
+        type="text"
+        placeholder="Brewery Name"
+        v-model="filter.breweryName"
       />
+      <input
+        id="search-city"
+        type="text"
+        placeholder="City"
+        v-model="filter.breweryCity"
+      />
+      <input
+        id="search-state"
+        type="text"
+        placeholder="State"
+        v-model="filter.breweryState"
+      />
+    </div>
+
+    <div id="brewery-card-scrollbox">
       <brewery-summary
-        class="card"
         v-for="brewery in filteredBreweries"
         v-bind:key="brewery.id"
         v-bind:brewery="brewery"
@@ -29,9 +49,9 @@
 </template>
 
 <script>
-import BrewerySummary from "@/components/BrewerySummary";
+import BrewerySummary from "@/components/summaries/BrewerySummary";
+import NewBreweryForm from "@/components/forms/NewBreweryForm.vue";
 import BreweryService from "@/services/BreweryService";
-import NewBreweryForm from "../forms/NewBreweryForm.vue";
 
 export default {
   components: { BrewerySummary, NewBreweryForm },
@@ -44,6 +64,7 @@ export default {
         breweryCity: "",
         breweryState: "",
       },
+      showAddBrewery: false,
     };
   },
   created() {
@@ -80,30 +101,41 @@ export default {
 
 <style>
 #brewery-list {
+  display: flex;
+  flex-direction: column;
+
   height: max-content;
 }
 
-.brewery-label {
-  color: white;
-  background-color: rgb(92, 76, 43);
-  border-radius: 20px;
+#brewery-list-title-form {
+  display: flex;
+  justify-content: space-between;
 }
 
-.search-label {
-  color: white;
+#brewery-list-title {
+  flex-grow: 1;
+}
+
+#show-add-brewery {
+  font-size: var(--section-header-text);
+
+  margin-bottom: 0.67em;
 }
 
 .search-bar {
   display: flex;
   justify-content: space-around;
   margin-bottom: 2%;
-  border: 0px solid white;
   padding: 1.5%;
+
   background-color: rgb(153, 119, 8);
-  border-radius: 20px;
+  color: white;
 }
 
 #brewery-card-scrollbox {
+  display: flex;
+  flex-direction: column;
+
   overflow-y: scroll;
   max-height: 55vh;
 }

@@ -1,6 +1,6 @@
 <template>
   <div id="home-grid">
-    <Header />
+    <Header ref="head" />
     <events-list />
     <brewery-list />
     <top-rated />
@@ -39,6 +39,7 @@ export default {
 #home-grid {
   display: grid;
   min-height: 100vh;
+  max-height: 100vh;
   grid-gap: 1%;
 
   grid-template-columns: 3fr 2fr;
