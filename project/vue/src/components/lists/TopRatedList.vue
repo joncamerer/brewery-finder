@@ -29,6 +29,10 @@ export default {
 </script>
 
 <style>
+#top-rated-list {
+  height: max-content;
+}
+
 #top-rated-scrollbox {
   overflow-y: scroll;
   height: 20vh;

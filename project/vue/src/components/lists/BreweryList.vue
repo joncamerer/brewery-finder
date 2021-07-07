@@ -79,6 +79,10 @@ export default {
 </script>
 
 <style>
+#brewery-list {
+  height: max-content;
+}
+
 .brewery-label {
   color: white;
   background-color: rgb(92, 76, 43);

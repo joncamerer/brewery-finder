@@ -37,8 +37,8 @@ export default {
 }
 
 #home-grid {
-  max-height: 100%;
   display: grid;
+  min-height: 100vh;
   grid-gap: 1%;
 
   grid-template-columns: 3fr 2fr;
@@ -52,5 +52,6 @@ export default {
   font-size: var(--section-header-text);
   color: var(--color-two);
   background-color: var(--color-five);
+  margin-top: 0;
 }
 </style>

@@ -129,27 +129,6 @@ export default {};
 .reviews {
   color: gold;
 }
-
-.form-register {
-  height: auto;
-  width: 250px;
-
-  background-color: rgb(247, 243, 240);
-  border: 3px solid black;
-  border-radius: 12px;
-  padding: 3%;
-  opacity: 90%;
-
-  left: 50%;
-  top: 50%;
-  margin-left: -25%;
-  position: absolute;
-  margin-top: -13%;
-}
-
-.form-register:hover {
-  opacity: 100%;
-}
 /* contact card css */
 .contact {
   border: 2px solid black;
@@ -273,6 +252,9 @@ export default {};
 body {
   background-color: var(--color-one);
   font-family: "Helvitica";
+
+  margin: 0;
+  min-height: 100vh;
 }
 
 .sidebar-scrollbox {

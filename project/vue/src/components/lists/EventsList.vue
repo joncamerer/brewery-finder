@@ -33,6 +33,10 @@ export default {
 </script>
 
 <style>
+#events-list {
+  height: max-content;
+}
+
 #events-scrollbox {
   overflow-y: scroll;
   height: 20vh;

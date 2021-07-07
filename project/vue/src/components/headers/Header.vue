@@ -31,8 +31,6 @@ export default {
 
 <style>
 #header {
-  background: red;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -40,7 +38,6 @@ export default {
   min-width: 0;
 
   padding: 0% 3%;
-
   height: 170px;
 }
 
