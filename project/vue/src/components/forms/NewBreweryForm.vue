@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div id="new-brewery-blurb-form">
     <p id="new-brewery-blurb">
-      Welcome to Brewery Finder! We're comitted to helping thirsty people find a
-      good brew. Fill out this form to add your brewery to our list
+      <span class="tab" />Welcome to Brewery Finder! We're comitted to helping
+      thirsty people find a good brew. Add your brewery to our list!
     </p>
     <form id="new-brewery-form" v-on:submit.prevent="addBrewery()">
       <div class="new-brewery-item">
@@ -64,7 +64,7 @@
           v-model="newBrewery.breweryWebsite"
         />
       </div>
-      <div class="new-brewery-item">
+      <div id="new-brewery-submission-bar">
         <button id="new-brewery-submission" type="submit">Save Brewery</button>
         <button
           id="cancel-brewery-submission"
@@ -106,14 +106,19 @@ export default {
 </script>
 
 <style>
+#new-brewery-blurb-form {
+  padding: 5% 20%;
+}
+
 #new-brewery-form {
   display: flex;
   flex-direction: column;
 
-  font-size: 17px;
+  padding: 0% 5%;
 }
 
-.new-brewery-input {
-  flex-grow: 1;
+#new-brewery-submission-bar {
+  display: flex;
+  justify-content: space-around;
 }
 </style>
