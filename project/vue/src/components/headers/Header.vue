@@ -60,10 +60,10 @@ export default {
   height: 110px;
 
   border-radius: 50%;
-  border: 3px solid black;
+  border: 3px solid transparent;
 }
 
 #header-logo:hover {
-  border: 3px solid green;
+  border: 3px solid var(--color-seven);
 }
 </style>

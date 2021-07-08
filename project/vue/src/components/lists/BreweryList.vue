@@ -155,7 +155,7 @@ export default {
   margin-bottom: 2%;
   padding: 1.5%;
 
-  background-color: rgb(153, 119, 8);
+  background-color: var(--color-seven);
   color: white;
 }
 

@@ -49,18 +49,4 @@ export default {
     "breweries top-rated"
     "breweries events";
 }
-
-.list-title {
-  font-size: var(--section-header-text);
-  color: var(--color-two);
-  background-color: var(--color-five);
-  margin-top: 0;
-  min-height: 35px;
-  padding-left: 3%;
-}
-
-.list-title-button {
-  font-size: var(--section-header-text);
-  margin-bottom: 0.67em;
-}
 </style>

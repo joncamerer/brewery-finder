@@ -1,9 +1,12 @@
 <template>
   <div class="sidebar-summary">
-    <p>{{ event.eventName }}</p>
-    <div id="event-time-brewery">
-      <p>{{ formatTime(event.eventTime) }}</p>
-      <p>{{ getBreweryName(event.breweryId) }} {{ breweryName }}</p>
+    <h1 class="summary-title">{{ event.eventName }}</h1>
+    <div id="event-time-brewery" class="summary-text">
+      <p>{{ event.eventDate }}</p>
+      <p class="summary-list-item">{{ formatTime(event.eventTime) }}</p>
+      <p class="summary-list-item">
+        {{ getBreweryName(event.breweryId) }} {{ breweryName }}
+      </p>
     </div>
   </div>
 </template>

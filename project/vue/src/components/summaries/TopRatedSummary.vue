@@ -1,10 +1,12 @@
 <template>
   <div class="sidebar-summary">
-    <p>{{ beer.beerName }}</p>
-    <p>{{ getBreweryName(beer.breweryId) }} {{ breweryName }}</p>
-    <div id="tr-style-abv">
-      <p>{{ beer.beerStyle }},</p>
-      <p>{{ beer.beerAbv }}% ABV</p>
+    <h1 class="summary-title">{{ beer.beerName }}</h1>
+    <p class="summary-text">
+      {{ getBreweryName(beer.breweryId) }} {{ breweryName }}
+    </p>
+    <div id="tr-style-abv" class="summary-text">
+      <p>{{ beer.beerStyle }}</p>
+      <p class="summary-list-item">{{ beer.beerAbv }}% ABV</p>
     </div>
   </div>
 </template>

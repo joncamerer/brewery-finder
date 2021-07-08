@@ -1,16 +1,18 @@
 <template>
   <div
-    class="brewery-summary-card"
+    id="brewery-summary"
     @mouseover="showButtons = true"
     @mouseleave="showButtons = false"
   >
     <div id="brewery-summary-info">
-      <h1 id="brewery-summary-name">{{ brewery.breweryName }}</h1>
-      <h1 id="brewery-summary-location">
-        {{ brewery.breweryCity + ", " + brewery.breweryState }}
-      </h1>
+      <h1 class="summary-title">{{ brewery.breweryName }}</h1>
+      <div id="brewery-summary-city-state" class="summary-text">
+        <p>{{ brewery.breweryCity }}</p>
+        <p class="summary-list-item">{{ brewery.breweryState }}</p>
+      </div>
     </div>
 
+    <div id="view-brewery-details-holder" v-show="!showButtons"></div>
     <div id="view-brewery-details-button" v-show="showButtons">
       <button
         id="brewery-details-button"
@@ -49,7 +51,7 @@ export default {
 </script>
 
 <style>
-.brewery-summary-card {
+#brewery-summary {
   display: flex;
   justify-content: space-between;
   align-items: stretch;
@@ -60,16 +62,13 @@ export default {
 
 #brewery-summary-info {
   display: flex;
+  flex-grow: 1;
   flex-direction: column;
   padding-left: 3%;
 }
 
-#brewery-summary-name {
-  font-size: var(--card-header);
-}
-
-#brewery-summary-location {
-  font-size: var(--card-body);
+#brewery-summary-city-state {
+  display: flex;
 }
 
 #view-brewery-details-button {
@@ -77,6 +76,10 @@ export default {
 }
 
 #view-brewery-details-button button {
+  width: 90px;
+}
+
+#view-brewery-details-holder {
   width: 90px;
 }
 

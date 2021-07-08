@@ -40,10 +40,10 @@
       />
 
       <div id="signin-bar">
-        <router-link id="login-register" :to="{ name: 'register' }"
-          >Register</router-link
-        >
         <button type="submit" id="login-submit">Sign in</button>
+        <router-link id="login-register" :to="{ name: 'register' }"
+          ><button type="button">Register</button></router-link
+        >
       </div>
     </form>
   </div>
@@ -92,10 +92,9 @@ export default {
   flex-direction: column;
   min-width: 0%;
 
-  background-color: rgb(247, 243, 240);
-  border: 3px solid black;
+  background-color: white;
 
-  padding: 5% 15px 5% 30px;
+  padding: 6% 15px 6% 90px;
   margin: 1% 0%;
 }
 
@@ -116,5 +115,9 @@ export default {
 #signin-bar {
   display: flex;
   justify-content: space-around;
+}
+
+#login-register {
+  text-decoration: none;
 }
 </style>

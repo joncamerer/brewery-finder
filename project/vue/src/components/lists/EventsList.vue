@@ -39,6 +39,6 @@ export default {
 
 #events-scrollbox {
   overflow-y: scroll;
-  height: calc(100vh - (220px + 35vh + 51.75px));
+  height: calc(100vh - (216px + 35vh + 51.75px));
 }
 </style>

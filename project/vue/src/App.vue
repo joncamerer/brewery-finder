@@ -190,6 +190,7 @@ export default {};
   --color-four: #ec9d00;
   --color-five: #df8d03;
   --color-six: #c96e12;
+  --color-seven: rgb(153, 119, 8);
 
   --main-header-text: 50px;
   --section-header-text: 25px;
@@ -209,6 +210,37 @@ body {
 
   margin: 0;
   min-height: 100vh;
+}
+
+.list-title {
+  font-size: var(--section-header-text);
+  color: var(--color-two);
+  background-color: var(--color-five);
+  margin-top: 0;
+  min-height: 35px;
+  padding-left: 3%;
+}
+
+.list-title-button {
+  font-size: var(--section-header-text);
+  margin-bottom: 0.67em;
+}
+
+.summary-title {
+  font-size: var(--card-header);
+}
+
+.summary-text {
+  font-size: var(--card-body);
+  margin: 0;
+}
+
+.summary-text > p {
+  margin: 0.5em 0em;
+}
+
+.summary-list-item {
+  margin-left: 15px !important;
 }
 
 .sidebar-scrollbox {

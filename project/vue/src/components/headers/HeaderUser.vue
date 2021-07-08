@@ -47,7 +47,6 @@ export default {
   justify-content: flex-end;
 
   background-color: white;
-  border: 3px solid black;
 
   padding: 3% 15px 3% 30px;
 
