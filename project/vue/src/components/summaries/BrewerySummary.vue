@@ -56,6 +56,10 @@ export default {
   padding-left: 3%;
 }
 
+#brewery-summary-location {
+  font-size: var(--card-body);
+}
+
 /* card temp border */
 .cord {
   border: 2px solid black;

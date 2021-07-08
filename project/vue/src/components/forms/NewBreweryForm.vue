@@ -1,19 +1,21 @@
 <template>
   <div>
+    <p id="new-brewery-blurb">
+      Welcome to Brewery Finder! We're comitted to helping thirsty people find a
+      good brew. Fill out this form to add your brewery to our list
+    </p>
     <form id="new-brewery-form" v-on:submit.prevent="addBrewery()">
       <div class="new-brewery-item">
-        <label for="new-brewery-name">Brewery Name:</label>
         <input
           id="new-brewery-name"
           class="new-brewery-input"
           type="text"
-          placeholder="Name"
+          placeholder="Brewery Name"
           v-model="newBrewery.breweryName"
         />
       </div>
 
       <div class="new-brewery-item">
-        <label for="new-brewery-address"> Street Address:</label>
         <input
           id="new-brewery-address"
           class="new-brewery-input"
@@ -24,7 +26,6 @@
       </div>
 
       <div class="new-brewery-item">
-        <label for="new-brewery-city"> City:</label>
         <input
           id="new-brewery-city"
           class="new-brewery-input"
@@ -35,7 +36,6 @@
       </div>
 
       <div class="new-brewery-item">
-        <label for="new-brewery-state"> State:</label>
         <input
           id="new-brewery-state"
           class="new-brewery-input"
@@ -46,7 +46,6 @@
       </div>
 
       <div class="new-brewery-item">
-        <label for="new-brewery-zip">Zip:</label>
         <input
           id="new-brewery-zip"
           class="new-brewery-input"
@@ -57,7 +56,6 @@
       </div>
 
       <div class="new-brewery-item">
-        <label for="new-brewery-website">Website:</label>
         <input
           id="new-brewery-website"
           class="new-brewery-input"

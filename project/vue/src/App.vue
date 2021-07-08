@@ -203,6 +203,7 @@ export default {};
   --main-header-text: 50px;
   --section-header-text: 25px;
   --card-header: 25px;
+  --card-body: 18px;
   --body-text: 12px;
 }
 

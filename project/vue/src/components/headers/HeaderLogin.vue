@@ -1,42 +1,42 @@
 <template>
   <div id="login">
     <form class="form-signin" @submit.prevent="login">
-      <h1 id="login-title">Sign In</h1>
-      <div class="alert alert-danger" role="alert" v-if="invalidCredentials">
-        Invalid username and password!
-      </div>
+      <h1 id="login-title" class="login-item">Sign In</h1>
+
       <div
-        class="alert alert-success"
+        class="login-item login-alert"
+        role="alert"
+        v-if="invalidCredentials"
+      >
+        Invalid username or password!
+      </div>
+
+      <div
+        class="login-item login-alert"
         role="alert"
         v-if="this.$route.query.registration"
       >
         Thank you for registering, please sign in.
       </div>
 
-      <div class="login-item">
-        <label for="username" class="login-label">Username: </label>
-        <input
-          type="text"
-          id="username"
-          class="login-input"
-          placeholder="Username"
-          v-model="user.username"
-          required
-          autofocus
-        />
-      </div>
+      <input
+        id="login-username"
+        class="login-item"
+        type="text"
+        placeholder="Username"
+        v-model="user.username"
+        required
+        autofocus
+      />
 
-      <div class="login-item">
-        <label for="password" class="login-label">Password: </label>
-        <input
-          type="password"
-          id="password"
-          class="login-input"
-          placeholder="Password"
-          v-model="user.password"
-          required
-        />
-      </div>
+      <input
+        id="login-password"
+        class="login-item"
+        type="password"
+        placeholder="Password"
+        v-model="user.password"
+        required
+      />
 
       <div id="signin-bar">
         <router-link id="login-register" :to="{ name: 'register' }"
@@ -86,37 +86,30 @@ export default {
 </script>
 
 <style>
-#login {
-  display: flex;
-}
-
 .form-signin {
+  display: flex;
+  flex-direction: column;
   min-width: 0%;
 
   background-color: rgb(247, 243, 240);
   border: 3px solid black;
 
-  padding: 3% 15px 3% 30px;
+  padding: 5% 15px 5% 30px;
   margin: 1% 0%;
 }
 
 #login-title {
   font-size: var(--section-header-text);
+  margin: 1%;
 }
 
-.login-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-}
-
-.login-label {
+.login-alert {
+  font-weight: bold;
   font-size: var(--body-text);
 }
 
-.login-input {
-  min-width: 0%;
-  margin-left: 2%;
+.login-item {
+  margin-bottom: 2%;
 }
 
 #signin-bar {

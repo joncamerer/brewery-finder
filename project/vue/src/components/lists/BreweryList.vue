@@ -144,6 +144,7 @@ export default {
 
 .new-brewery-item {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   padding-bottom: 3%;
 }
