@@ -1,8 +1,10 @@
 <template>
-  <div class="sidebar-item">
+  <div class="sidebar-summary">
     <p>{{ event.eventName }}</p>
-    <p>{{ formatTime(event.eventTime) }}</p>
-    <p>{{ getBreweryName(event.breweryId) }} {{ breweryName }}</p>
+    <div id="event-time-brewery">
+      <p>{{ formatTime(event.eventTime) }}</p>
+      <p>{{ getBreweryName(event.breweryId) }} {{ breweryName }}</p>
+    </div>
   </div>
 </template>
 
@@ -47,22 +49,7 @@ export default {
 </script>
 
 <style>
-.event-date {
-  padding: 1%;
-  margin-left: 4%;
-}
-
-.event-time {
-  padding: 1%;
-  margin-left: 4%;
-}
-
-.event-name-event {
-  color: black;
-  font-size: 34px;
-}
-
-.event-name-event:hover {
-  text-decoration: underline;
+#event-time-brewery {
+  display: flex;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div id="events-list">
     <h1 class="list-title">Upcoming Events:</h1>
-    <div class="sidebar-scrollbox">
+    <div id="events-scrollbox">
       <events-summary
         v-for="event in allEvents"
         v-bind:key="event.id"
@@ -13,7 +13,7 @@
 
 <script>
 import EventService from "@/services/EventService";
-import EventsSummary from "../EventsSummary.vue";
+import EventsSummary from "@/components/summaries/EventsSummary.vue";
 
 export default {
   components: { EventsSummary },
@@ -39,6 +39,6 @@ export default {
 
 #events-scrollbox {
   overflow-y: scroll;
-  height: 20vh;
+  height: calc(100vh - (220px + 35vh + 51.75px));
 }
 </style>

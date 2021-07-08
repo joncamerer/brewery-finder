@@ -47,14 +47,6 @@ export default {};
   margin-left: -4%;
   margin-right: 6%;
 }
-::-webkit-scrollbar {
-  background-color: rgb(247, 247, 147, 0.6);
-  border-radius: 10px;
-}
-::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.96);
-}
 
 .events {
   color: gold;
@@ -217,7 +209,13 @@ body {
 
 .sidebar-scrollbox {
   overflow-y: scroll;
-  height: 20vh;
+}
+
+.sidebar-summary {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3%;
+  background-color: white;
 }
 
 .sidebar-item {

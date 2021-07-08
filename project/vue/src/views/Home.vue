@@ -1,9 +1,9 @@
 <template>
   <div id="home-grid">
     <Header />
-    <events-list />
     <brewery-list />
     <top-rated />
+    <events-list />
   </div>
 </template>
 
@@ -43,7 +43,7 @@ export default {
   grid-gap: 1%;
 
   grid-template-columns: 3fr 2fr;
-  grid-template-rows: 170px auto auto;
+  grid-template-rows: 170px 38vh auto;
   grid-template-areas:
     "header header"
     "breweries top-rated"

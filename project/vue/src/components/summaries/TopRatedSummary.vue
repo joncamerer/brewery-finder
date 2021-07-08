@@ -1,10 +1,10 @@
 <template>
-  <div class="sidebar-item">
+  <div class="sidebar-summary">
     <p>{{ beer.beerName }}</p>
     <p>{{ getBreweryName(beer.breweryId) }} {{ breweryName }}</p>
     <div id="tr-style-abv">
       <p>{{ beer.beerStyle }},</p>
-      <p>{{ beer.beerAbv }} % ABV</p>
+      <p>{{ beer.beerAbv }}% ABV</p>
     </div>
   </div>
 </template>

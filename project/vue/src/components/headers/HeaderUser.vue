@@ -34,10 +34,7 @@ export default {
   methods: {
     logout() {
       this.$store.commit("LOGOUT");
-
-      if (this.$route.path != "/") {
-        this.$router.push("/");
-      }
+      this.$router.go();
     },
   },
 };

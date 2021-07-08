@@ -19,7 +19,7 @@
       >
         View Details
       </button>
-      <button v-else>Log in View Details</button>
+      <button v-on:click="redirectLogin()" v-else>Log in View Details</button>
     </div>
   </div>
 </template>
@@ -41,6 +41,9 @@ export default {
       const id = this.brewery.id;
       this.$router.push({ name: "breweryDetails", params: { id } });
     },
+    redirectLogin() {
+      console.log("do focus");
+    },
   },
 };
 </script>
@@ -61,12 +64,19 @@ export default {
   padding-left: 3%;
 }
 
+#brewery-summary-name {
+  font-size: var(--card-header);
+}
+
 #brewery-summary-location {
   font-size: var(--card-body);
 }
 
 #view-brewery-details-button {
   display: flex;
+}
+
+#view-brewery-details-button button {
   width: 90px;
 }
 

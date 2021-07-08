@@ -1,7 +1,7 @@
 <template>
   <div id="top-rated-list">
     <h1 class="list-title">Top Rated Beers:</h1>
-    <div class="sidebar-scrollbox">
+    <div id="top-rated-scrollbox">
       <top-rated-summary v-for="beer in beers" :key="beer.id" :beer="beer" />
     </div>
   </div>
@@ -9,7 +9,7 @@
 
 <script>
 import beerService from "@/services/BeerService";
-import TopRatedSummary from "../TopRatedSummary.vue";
+import TopRatedSummary from "@/components/summaries/TopRatedSummary.vue";
 
 export default {
   components: { TopRatedSummary },
@@ -29,12 +29,8 @@ export default {
 </script>
 
 <style>
-#top-rated-list {
-  height: max-content;
-}
-
 #top-rated-scrollbox {
   overflow-y: scroll;
-  height: 20vh;
+  height: 30vh;
 }
 </style>

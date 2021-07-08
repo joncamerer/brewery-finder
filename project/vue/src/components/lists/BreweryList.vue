@@ -1,6 +1,6 @@
 <template>
   <div id="brewery-list">
-    <div id="brewery-list-title-box">
+    <div id="brewery-list-title-box" ref="titleBar">
       <h1 id="brewery-list-title" class="list-title">Breweries:</h1>
       <button
         id="toggle-add-button"
@@ -25,26 +25,28 @@
     </div>
 
     <div id="list-breweries-box" v-else>
-      <div class="search-bar">
-        <label for="search-name">Search: </label>
-        <input
-          id="search-name"
-          type="text"
-          placeholder="Brewery Name"
-          v-model="filter.breweryName"
-        />
-        <input
-          id="search-city"
-          type="text"
-          placeholder="City"
-          v-model="filter.breweryCity"
-        />
-        <input
-          id="search-state"
-          type="text"
-          placeholder="State"
-          v-model="filter.breweryState"
-        />
+      <div ref="searchBar">
+        <div class="search-bar">
+          <label for="search-name">Search: </label>
+          <input
+            id="search-name"
+            type="text"
+            placeholder="Brewery Name"
+            v-model="filter.breweryName"
+          />
+          <input
+            id="search-city"
+            type="text"
+            placeholder="City"
+            v-model="filter.breweryCity"
+          />
+          <input
+            id="search-state"
+            type="text"
+            placeholder="State"
+            v-model="filter.breweryState"
+          />
+        </div>
       </div>
 
       <div id="brewery-card-scrollbox">
@@ -118,8 +120,7 @@ export default {
 #brewery-list {
   display: flex;
   flex-direction: column;
-
-  height: max-content;
+  height: calc(100vh - (170px + 2%));
 }
 
 #brewery-list-title-box {
@@ -149,6 +150,10 @@ export default {
   padding-bottom: 3%;
 }
 
+#list-breweries-box {
+  height: calc(100vh - (170px + 2%));
+}
+
 .search-bar {
   display: flex;
   justify-content: space-around;
@@ -164,6 +169,6 @@ export default {
   flex-direction: column;
 
   overflow-y: scroll;
-  max-height: 55vh;
+  max-height: calc(100vh - (200px + 51.75px + 41.75px));
 }
 </style>
