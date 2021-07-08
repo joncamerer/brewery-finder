@@ -66,6 +66,13 @@
       </div>
       <div class="new-brewery-item">
         <button id="new-brewery-submission" type="submit">Save Brewery</button>
+        <button
+          id="cancel-brewery-submission"
+          type="button"
+          v-on:click="hideForm()"
+        >
+          Cancel
+        </button>
       </div>
     </form>
   </div>
@@ -90,6 +97,9 @@ export default {
           this.$router.go();
         }
       });
+    },
+    hideForm() {
+      this.$emit("hideForm");
     },
   },
 };

@@ -16,12 +16,7 @@
     </div>
 
     <div id="new-brewery-form-box" v-if="showAddBrewery">
-      <new-brewery-form />
-      <div class="new-brewery-item">
-        <button id="cancel-new-brewery-button" v-on:click="toggleAddBrewery">
-          Cancel Brewery
-        </button>
-      </div>
+      <new-brewery-form @hideForm="toggleAddBrewery" />
     </div>
 
     <div id="list-breweries-box" v-else>
