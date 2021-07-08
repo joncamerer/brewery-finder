@@ -2,7 +2,7 @@
   <div
     class="brewery-summary-card"
     @mouseover="showButtons = true"
-    @mouseleave="showButtons = true"
+    @mouseleave="showButtons = false"
   >
     <div id="brewery-summary-info">
       <h1 id="brewery-summary-name">{{ brewery.breweryName }}</h1>
@@ -12,7 +12,11 @@
     </div>
 
     <div id="view-brewery-details-button" v-show="showButtons">
-      <button v-on:click="viewDetails()" v-if="$store.state.token != ''">
+      <button
+        id="brewery-details-button"
+        v-on:click="viewDetails()"
+        v-if="$store.state.token != ''"
+      >
         View Details
       </button>
       <button v-else>Log in View Details</button>
@@ -26,9 +30,10 @@ export default {
   props: {
     brewery: Object,
   },
+  emits: ["loginRedirect"],
   data() {
     return {
-      showButtons: true,
+      showButtons: false,
     };
   },
   methods: {
@@ -44,7 +49,7 @@ export default {
 .brewery-summary-card {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: stretch;
 
   background-color: #fff;
   margin-bottom: 3%;
@@ -60,33 +65,12 @@ export default {
   font-size: var(--card-body);
 }
 
-/* card temp border */
-.cord {
-  border: 2px solid black;
-  border-radius: 15px;
-  padding: 3px;
-  margin: 4%;
-  box-shadow: 3px 2px 14px rgba(white, 0.2);
-  transition: all 200ms ease-in-out;
-  background-color: white;
-
-  opacity: 50%;
-  color: rgb(8, 8, 4);
-  filter: blur(0.7px);
+#view-brewery-details-button {
+  display: flex;
+  width: 90px;
 }
 
-.cord:hover {
-  transform: translateY(-1rem);
-  box-shadow: 3px 2px 18px rgba(255.255.255, 0.4);
-  color: rgb(175, 150, 7);
-  font-weight: 900;
-  font-size: 24px;
-  text-decoration: underline;
-  border-bottom: 6px solid black;
-  border-right: 6px solid black;
-  border-top: 0px;
-  border-left: 0px;
-  filter: blur(0px);
-  opacity: 90%;
+#brewery-details-button {
+  white-space: nowrap;
 }
 </style>

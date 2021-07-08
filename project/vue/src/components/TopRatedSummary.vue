@@ -1,9 +1,11 @@
 <template>
   <div class="sidebar-item">
     <p>{{ beer.beerName }}</p>
-    <p>{{ beer.beerStyle }}</p>
-    <p>{{ beer.beerAbv }} % ABV</p>
     <p>{{ getBreweryName(beer.breweryId) }} {{ breweryName }}</p>
+    <div id="tr-style-abv">
+      <p>{{ beer.beerStyle }},</p>
+      <p>{{ beer.beerAbv }} % ABV</p>
+    </div>
   </div>
 </template>
 
@@ -32,4 +34,7 @@ export default {
 </script>
 
 <style>
+#tr-style-abv {
+  display: flex;
+}
 </style>

@@ -21,6 +21,7 @@
 
       <input
         id="login-username"
+        ref="login"
         class="login-item"
         type="text"
         placeholder="Username"
