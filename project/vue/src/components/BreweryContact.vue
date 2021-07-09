@@ -1,5 +1,5 @@
 <template>
-  <div class="contact">
+  <div>
     <h2>{{ brewery.breweryName }}</h2>
     <h3>{{ brewery.breweryStreetAddress }}</h3>
 

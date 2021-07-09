@@ -77,28 +77,6 @@ export default {};
 .reviews {
   color: gold;
 }
-/* contact card css */
-.contact {
-  border: 2px solid black;
-  border-radius: 15px;
-  background-color: white;
-  font-weight: bolder;
-  font-size: 17px;
-  padding-left: 3%;
-  border-bottom: 6px solid black;
-  border-right: 6px solid black;
-  border-top: 0px;
-  border-left: 0px;
-  filter: blur(0px);
-  opacity: 90%;
-  margin-right: 33%;
-  margin-left: 3%;
-}
-.contact h2 {
-  text-decoration: underline;
-  font-size: 40px;
-  color: rgb(175, 150, 7);
-}
 
 .beer-menu {
   margin: 1%;

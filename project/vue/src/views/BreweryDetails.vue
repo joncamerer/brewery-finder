@@ -3,7 +3,6 @@
     <Header />
     <brewery-contact v-bind:brewery="this.thisBrewery" />
     <button
-      class="update-form2"
       v-show="$store.state.user.id == thisBrewery.brewerId"
       v-on:click="showUpdateForm()"
     >
