@@ -1,12 +1,16 @@
 <template>
   <div id="beer-summary">
-    <div id="beer-summary-info" v-on:click="toggleHidden()">
+    <div id="beer-summary-info-box" v-on:click="toggleHidden()">
       <div id="beer-summary-image-box">
         <img id="beer-summary-image" :src="beer.beerImage" />
       </div>
-      <h1 class="beer-name">{{ beer.beerName }}</h1>
-      <p class="beer-style">{{ beer.beerStyle }}</p>
-      <p class="beer-abv">{{ beer.beerAbv + "%" }}</p>
+      <div id="brewery-summary-info">
+        <h1 class="summary-title">{{ beer.beerName }}</h1>
+        <div id="beer-summary-style-abv" class="summary-text">
+          <p>{{ beer.beerStyle }}</p>
+          <p class="summary-list-item">{{ beer.beerAbv + "%" }}</p>
+        </div>
+      </div>
     </div>
 
     <beer-detail
@@ -44,10 +48,11 @@ export default {
 </script>
 
 <style >
-#beer-summary-info {
+#beer-summary-info-box {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
+  padding-left: 3%;
   margin-bottom: 2%;
   background-color: white;
 }
@@ -64,5 +69,13 @@ export default {
 
 #beer-summary-image {
   max-height: 110px;
+}
+
+#brewery-summary-info {
+  padding-left: 3%;
+}
+
+#beer-summary-style-abv {
+  display: flex;
 }
 </style>
