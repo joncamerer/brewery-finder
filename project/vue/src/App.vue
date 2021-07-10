@@ -194,6 +194,10 @@ body {
   min-height: 100vh;
 }
 
+textarea {
+  font-family: "Helvitica";
+}
+
 .list-title-bar {
   display: flex;
 }

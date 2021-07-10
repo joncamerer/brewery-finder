@@ -7,17 +7,20 @@
         class="list-title-button"
         type="button"
         v-if="$store.state.user.id == brewery.brewerId"
-        v-on:click="toggleAddBeer"
+        v-on:click="toggleAddBeer()"
       >
         {{ showAddBeer ? "-" : "+" }}
       </button>
     </div>
 
     <div id="new-beer-form-box" v-if="showAddBeer">
-      <new-beer-form v-bind:breweryNumber="breweryId" />
+      <new-beer-form
+        v-bind:breweryNumber="breweryId"
+        v-on:hideForm="toggleAddBeer()"
+      />
     </div>
 
-    <div id="list-beer-box" v-else>
+    <div id="beer-list-box" v-else>
       <beer-summary
         v-for="beer in allBeers"
         v-bind:key="beer.id"
