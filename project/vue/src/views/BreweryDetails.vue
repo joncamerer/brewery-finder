@@ -1,40 +1,34 @@
 <template>
   <div id="brewery-details-grid">
     <Header />
-    <brewery-contact v-bind:brewery="this.thisBrewery" />
-
-    <div class="menu">
-      <brewery-menu
-        v-bind:breweryNumber="breweryId"
-        v-bind:brewerId="thisBrewery.brewerId"
-      />
-    </div>
+    <brewery-contact v-bind:brewery="brewery" />
+    <beer-list v-bind:brewery="brewery" />
   </div>
 </template>
 
 <script>
 import Header from "@/components/headers/Header.vue";
-import BreweryContact from "../components/BreweryContact.vue";
-import BreweryMenu from "../components/BreweryMenu.vue";
+import BreweryContact from "@/components/summaries/BreweryContact.vue";
+import BeerList from "@/components/lists/BeerList.vue";
 
 import BreweryService from "@/services/BreweryService";
 
 export default {
-  data() {
-    return {
-      breweryId: parseInt(this.$route.params.id),
-      thisBrewery: {},
-    };
-  },
   components: {
     Header,
     BreweryContact,
-    BreweryMenu,
+    BeerList,
+  },
+  data() {
+    return {
+      breweryId: parseInt(this.$route.params.id),
+      brewery: {},
+    };
   },
   created() {
     BreweryService.get(this.breweryId).then((response) => {
       if (response.status === 200) {
-        this.thisBrewery = response.data;
+        this.brewery = response.data;
       }
     });
   },

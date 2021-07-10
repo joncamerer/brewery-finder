@@ -1,15 +1,16 @@
 <template>
   <div id="brewery-list">
-    <div id="brewery-list-title-bar">
-      <h1 id="brewery-list-title" class="list-title">Breweries:</h1>
+    <div class="list-title-bar">
+      <h1 id="list-title" class="list-title">Breweries:</h1>
       <button
         id="toggle-new-brewery-button"
         class="list-title-button"
+        type="button"
         v-if="
           $store.state.token != '' &&
           $store.state.user.accountType == 'Administrator'
         "
-        v-on:click="toggleAddBrewery"
+        v-on:click="toggleAddBrewery()"
       >
         {{ showAddBrewery ? "-" : "+" }}
       </button>
@@ -116,19 +117,6 @@ export default {
   display: flex;
   flex-direction: column;
   height: calc(100vh - (170px + 2%));
-}
-
-#brewery-list-title-bar {
-  display: flex;
-  justify-content: space-between;
-}
-
-#brewery-list-title {
-  flex-grow: 1;
-}
-
-#toggle-new-brewery-button {
-  min-width: 40px;
 }
 
 #new-brewery-form-box {

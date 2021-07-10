@@ -1,11 +1,12 @@
 <template>
   <div id="brewery-contact">
-    <div id="brewery-contact-title-bar">
+    <div class="list-title-bar">
       <h1 id="brewery-contact-list-title" class="list-title">Contact Info</h1>
       <button
         id="toggle-update-brewery-button"
         class="list-title-button"
-        v-show="$store.state.user.id == brewery.brewerId"
+        type="button"
+        v-if="$store.state.user.id == brewery.brewerId"
         v-on:click="toggleUpdateBrewery()"
       >
         {{ showUpdateBrewery ? "-" : "+" }}
@@ -60,25 +61,17 @@ export default {
 </script>
 
 <style>
-#brewery-contact-title-bar {
-  display: flex;
-  justify-content: space-between;
-}
-
-#brewery-contact-list-title {
-  flex-grow: 1;
-}
-
-#toggle-update-brewery-button {
-  min-width: 40px;
-}
-
 #update-brewery-form-box {
   display: flex;
   padding: 1%;
   background-color: var(--color-three);
   flex-direction: column;
   align-items: stretch;
+}
+
+#brewery-contact-info {
+  padding-left: 3%;
+  background-color: #fff;
 }
 
 #brewery-contact-city-state-zip {

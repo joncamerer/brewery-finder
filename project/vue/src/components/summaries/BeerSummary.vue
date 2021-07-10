@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import BeerDetail from "./BeerDetail.vue";
+import BeerDetail from "@/components/BeerDetail.vue";
 export default {
   components: { BeerDetail },
   data() {

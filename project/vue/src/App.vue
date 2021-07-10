@@ -194,6 +194,10 @@ body {
   min-height: 100vh;
 }
 
+.list-title-bar {
+  display: flex;
+}
+
 .list-title {
   font-size: var(--section-header-text);
   color: var(--color-two);
@@ -201,11 +205,14 @@ body {
   margin-top: 0;
   min-height: 35px;
   padding-left: 3%;
+
+  flex-grow: 1;
 }
 
 .list-title-button {
   font-size: var(--section-header-text);
   margin-bottom: 0.67em;
+  min-width: 40px;
 }
 
 .summary-title {
