@@ -1,12 +1,12 @@
 <template>
   <div id="header">
     <div id="logo-title">
-      <router-link v-bind:to="{ name: 'home' }">
-        <div>
+      <div id="header-logo-box">
+        <router-link id="header-logo-link" v-bind:to="{ name: 'home' }">
           <img id="header-logo" src="@/images/logo.png" />
-        </div>
-      </router-link>
-      <div id="header-title">Brewery Finder</div>
+        </router-link>
+      </div>
+      <h1 id="header-title">Brewery Finder</h1>
     </div>
     <div v-if="displayLogin">
       <header-login v-if="$store.state.token == ''" />
@@ -48,22 +48,29 @@ export default {
   padding: 1% 0%;
 }
 
-#header-title {
-  font-size: var(--main-header-text);
-  color: var(--color-six);
+#header-logo-box {
+  display: flex;
+  justify-content: center;
+  width: 120px;
+  height: 110px;
+  border: 3px solid transparent;
+  border-radius: 50%;
+  overflow: hidden;
+}
 
-  white-space: nowrap;
+#header-logo-box:hover {
+  border: 3px solid var(--color-seven);
 }
 
 #header-logo {
-  width: 120px;
-  height: 110px;
-
-  border-radius: 50%;
-  border: 3px solid transparent;
+  max-height: 110px;
 }
 
-#header-logo:hover {
-  border: 3px solid var(--color-seven);
+#header-title {
+  font-size: var(--main-header-text);
+  color: var(--color-six);
+  margin: 0;
+
+  white-space: nowrap;
 }
 </style>

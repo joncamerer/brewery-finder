@@ -1,6 +1,8 @@
 <template>
   <div id="header-user">
-    <h1 id="user-initial">{{ user.initial }}</h1>
+    <div id="user-initial-box">
+      <h1 id="user-initial">{{ user.initial }}</h1>
+    </div>
     <div id="header-user-info">
       <h1 id="user-title">Welcome back,</h1>
       <div class="header-user-item">
@@ -53,20 +55,31 @@ export default {
   opacity: 90%;
 }
 
+#user-initial-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+
+  border: 3px solid black;
+}
+
+#user-initial {
+  font-size: var(--section-header-text);
+}
+
 #header-user-info {
   display: flex;
   flex-direction: column;
+  padding-left: 30px;
 }
 
 #user-title {
   font-size: var(--section-header-text);
 
   white-space: nowrap;
-}
-
-#user-initial {
-  padding-right: 30px;
-  font-size: var(--section-header-text);
 }
 
 .header-user-item {

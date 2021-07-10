@@ -32,9 +32,10 @@
 </template>
 
 <script>
-import BeerService from "@/services/BeerService";
 import BeerSummary from "@/components/summaries/BeerSummary.vue";
 import NewBeerForm from "@/components/forms/NewBeerForm.vue";
+
+import BeerService from "@/services/BeerService";
 
 export default {
   components: { BeerSummary, NewBeerForm },
@@ -62,4 +63,8 @@ export default {
 </script>
 
 <style>
+#new-beer-form-box {
+  padding: 1%;
+  background-color: var(--color-three);
+}
 </style>

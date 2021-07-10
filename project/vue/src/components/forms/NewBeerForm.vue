@@ -83,9 +83,15 @@ export default {
 </script>
 
 <style>
+#new-beer-blurb-form {
+  padding: 5% 20%;
+}
+
 #new-beer-form {
   display: flex;
   flex-direction: column;
+
+  padding: 0% 5%;
 }
 
 .new-beer-item {
