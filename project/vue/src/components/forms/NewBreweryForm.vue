@@ -117,6 +117,12 @@ export default {
   padding: 0% 5%;
 }
 
+.new-brewery-item {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 3%;
+}
+
 #new-brewery-submission-bar {
   display: flex;
   justify-content: space-around;

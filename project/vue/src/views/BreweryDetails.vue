@@ -1,17 +1,8 @@
 <template>
-  <div class="menu-container">
+  <div id="brewery-details-grid">
     <Header />
     <brewery-contact v-bind:brewery="this.thisBrewery" />
-    <button
-      v-show="$store.state.user.id == thisBrewery.brewerId"
-      v-on:click="showUpdateForm()"
-    >
-      Update
-    </button>
-    <update-brewery-form
-      v-if="this.$store.state.showUpdateBreweryForm"
-      v-bind:breweryNumber="breweryId"
-    />
+
     <div class="menu">
       <brewery-menu
         v-bind:breweryNumber="breweryId"
@@ -22,11 +13,11 @@
 </template>
 
 <script>
+import Header from "@/components/headers/Header.vue";
 import BreweryContact from "../components/BreweryContact.vue";
-import UpdateBreweryForm from "../components/forms/UpdateBreweryForm.vue";
-import BreweryService from "@/services/BreweryService";
-import Header from "../components/headers/Header.vue";
 import BreweryMenu from "../components/BreweryMenu.vue";
+
+import BreweryService from "@/services/BreweryService";
 
 export default {
   data() {
@@ -36,15 +27,9 @@ export default {
     };
   },
   components: {
-    UpdateBreweryForm,
-    BreweryContact,
     Header,
+    BreweryContact,
     BreweryMenu,
-  },
-  methods: {
-    showUpdateForm() {
-      this.$store.commit("TOGGLE_UPDATE_BREWERY");
-    },
   },
   created() {
     BreweryService.get(this.breweryId).then((response) => {
@@ -57,25 +42,11 @@ export default {
 </script>
 
 <style>
-.update-form2 {
-  border: 2px solid black;
-  border-radius: 15px;
-  background-color: rgb(247, 221, 104);
-  font-weight: bolder;
-  font-size: 17px;
-
-  padding-left: 1%;
-  border-bottom: 6px solid black;
-  border-right: 6px solid black;
-  border-top: 0px;
-  border-left: 0px;
-  filter: blur(0px);
-  margin-left: 70px;
-  width: 164px;
-  height: 28px;
+#header {
+  grid-area: header;
 }
 
-.update-form2:hover {
-  background-color: rgb(255, 212, 19);
+#brewery-contact {
+  grid-area: contact;
 }
 </style>

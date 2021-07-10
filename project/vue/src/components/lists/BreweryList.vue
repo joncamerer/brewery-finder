@@ -1,22 +1,22 @@
 <template>
   <div id="brewery-list">
-    <div id="brewery-list-title-box" ref="titleBar">
+    <div id="brewery-list-title-bar">
       <h1 id="brewery-list-title" class="list-title">Breweries:</h1>
       <button
-        id="toggle-add-button"
+        id="toggle-new-brewery-button"
         class="list-title-button"
         v-if="
           $store.state.token != '' &&
           $store.state.user.accountType == 'Administrator'
         "
-        v-on:click="showAddBrewery = !showAddBrewery"
+        v-on:click="toggleAddBrewery"
       >
         {{ showAddBrewery ? "-" : "+" }}
       </button>
     </div>
 
     <div id="new-brewery-form-box" v-if="showAddBrewery">
-      <new-brewery-form @hideForm="toggleAddBrewery" />
+      <new-brewery-form v-on:hideForm="toggleAddBrewery" />
     </div>
 
     <div id="list-breweries-box" v-else>
@@ -118,7 +118,7 @@ export default {
   height: calc(100vh - (170px + 2%));
 }
 
-#brewery-list-title-box {
+#brewery-list-title-bar {
   display: flex;
   justify-content: space-between;
 }
@@ -127,22 +127,14 @@ export default {
   flex-grow: 1;
 }
 
-#toggle-add-button {
+#toggle-new-brewery-button {
   min-width: 40px;
 }
 
 #new-brewery-form-box {
   display: flex;
-  flex-direction: column;
   padding: 1%;
-  background-color: rgb(247, 221, 104);
-}
-
-.new-brewery-item {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding-bottom: 3%;
+  background-color: var(--color-three);
 }
 
 #list-breweries-box {

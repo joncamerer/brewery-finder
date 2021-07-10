@@ -20,7 +20,6 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
-    showUpdateBreweryForm: false,
     breweries: []
   },
   mutations: {
@@ -39,12 +38,6 @@ export default new Vuex.Store({
       state.token = '';
       state.user = {};
       axios.defaults.headers.common = {};
-    },
-    TOGGLE_UPDATE_BREWERY(state) {
-      state.showUpdateBreweryForm = !state.showUpdateBreweryForm;
-    },
-    FALSE_UPDATE_BREWERY(state) {
-      state.showUpdateBreweryForm = false;
     },
     SET_BREWERIES(state, breweries) {
       state.breweries = breweries;

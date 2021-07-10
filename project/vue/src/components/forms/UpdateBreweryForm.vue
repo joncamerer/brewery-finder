@@ -1,97 +1,122 @@
 <template>
-  <div class="update-form">
-    <form v-on:submit.prevent="updateBrewery()">
-      <label for="brewery-name">Brewery Name</label>
-      <input
-        type="text"
-        name="brewery-name"
-        v-model="breweryToUpdate.breweryName"
-      />
+  <div id="update-brewery-blurb-form">
+    <p id="update-brewery-blurb">Update your brewery's information</p>
+    <form id="update-brewery-form" v-on:submit.prevent="updateBrewery()">
+      <div class="update-brewery-item">
+        <label class="hidden-label" for="update-brewery-name"
+          >Brewery Name</label
+        >
+        <input
+          id="update-brewery-name"
+          type="text"
+          placeholder="Brewery Name"
+          v-model="breweryToUpdate.breweryName"
+        />
+      </div>
 
-      <label for="brewer-id">BrewerID</label>
-      <input
-        type="text"
-        placeholder="do I work?"
-        name="brewer-id"
-        v-model="breweryToUpdate.brewerId"
-      />
+      <div class="update-brewery-item">
+        <label class="hidden-label" for="update-brewer-id">BrewerID</label>
+        <input
+          id="update-brewer-id"
+          type="text"
+          placeholder="Brewer ID"
+          v-model="breweryToUpdate.brewerId"
+        />
+      </div>
 
-      <label for="brewery-address"> Address</label>
-      <input
-        type="text"
-        name="brewery-address"
-        v-model="breweryToUpdate.breweryStreetAddress"
-      />
+      <div class="update-brewery-item">
+        <label class="hidden-label" for="update-brewery-address">
+          Address</label
+        >
+        <input
+          id="update-brewery-address"
+          type="text"
+          placeholder="Street Address"
+          v-model="breweryToUpdate.breweryStreetAddress"
+        />
+      </div>
 
-      <label for="brewery-city"> City</label>
-      <input
-        type="text"
-        name="brewery-city"
-        v-model="breweryToUpdate.breweryCity"
-      />
+      <div class="update-brewery-item" id="update-city-state-zip">
+        <label class="hidden-label" for="update-brewery-city"> City</label>
+        <input
+          id="update-brewery-city"
+          class="update-city-state-zip-input"
+          type="text"
+          placeholder="City"
+          v-model="breweryToUpdate.breweryCity"
+        />
 
-      <label for="brewery-state"> State</label>
-      <input
-        type="text"
-        name="brewery-state"
-        v-model="breweryToUpdate.breweryState"
-      />
+        <label class="hidden-label" for="update-brewery-state"> State</label>
+        <input
+          id="update-brewery-state"
+          class="update-city-state-zip-input"
+          type="text"
+          placeholder="State"
+          v-model="breweryToUpdate.breweryState"
+        />
 
-      <label for="brewery-zip">Zip</label>
-      <input
-        type="text"
-        name="brewery-zip"
-        v-model="breweryToUpdate.breweryZipCode"
-      />
+        <label class="hidden-label" for="update-brewery-zip">Zip</label>
+        <input
+          id="update-brewery-zip"
+          class="update-city-state-zip-input"
+          type="text"
+          placeholder="Zipcode"
+          v-model="breweryToUpdate.breweryZipCode"
+        />
+      </div>
 
-      <label for="brewery-website">Website </label>
-      <input
-        type="text"
-        name="brewery-website"
-        v-model="breweryToUpdate.breweryWebsite"
-      />
-      <button>Update Brewery</button>
+      <div class="update-brewery-item">
+        <label class="hidden-label" for="update-brewery-website"
+          >Website
+        </label>
+        <input
+          id="update-brewery-website"
+          type="text"
+          placeholder="Website"
+          v-model="breweryToUpdate.breweryWebsite"
+        />
+      </div>
+
+      <div id="update-brewery-submission-bar">
+        <button type="submit">Update Brewery</button>
+        <button type="button" v-on:click.prevent="hideForm()">Cancel</button>
+        <button type="button" v-on:click.prevent="deactivate()">Delete</button>
+      </div>
     </form>
-    <button v-on:click.prevent="cancel()">Cancel</button>
-    <button v-on:click.prevent="deactivate()">Delete</button>
   </div>
 </template>
 
 <script>
 import breweryService from "@/services/BreweryService";
+
 export default {
-  props: ["breweryNumber"],
+  props: { brewery: Object },
   data() {
     return {
-      breweryToUpdate: {},
+      breweryToUpdate: {
+        breweryName: this.brewery.breweryName,
+        brewerId: this.brewery.brewerId,
+        breweryStreetAddress: this.brewery.breweryStreetAddress,
+        breweryCity: this.brewery.breweryCity,
+        breweryState: this.brewery.breweryState,
+        breweryZipCode: this.brewery.breweryZipCode,
+        breweryWebsite: this.brewery.breweryWebsite,
+        active: this.brewery.active,
+      },
     };
-  },
-  created() {
-    breweryService.get(this.breweryNumber).then((response) => {
-      this.breweryToUpdate = response.data;
-    });
   },
   methods: {
     updateBrewery() {
-      const brewery = {
-        breweryName: this.breweryToUpdate.breweryName,
-        brewerId: this.breweryToUpdate.brewerId,
-        breweryStreetAddress: this.breweryToUpdate.breweryStreetAddress,
-        breweryCity: this.breweryToUpdate.breweryCity,
-        breweryState: this.breweryToUpdate.breweryState,
-        breweryZipCode: this.breweryToUpdate.breweryZipCode,
-        breweryWebsite: this.breweryToUpdate.breweryWebsite,
-        active: this.breweryToUpdate.active,
-      };
-      breweryService.update(brewery, this.breweryNumber).then((response) => {
-        if (response.status === 200) {
-          this.$store.commit("TOGGLE_UPDATE_BREWERY");
-        }
-      });
+      breweryService
+        .update(this.breweryToUpdate, this.brewery.id)
+        .then((response) => {
+          if (response.status === 200) {
+            this.$router.go();
+          }
+        });
     },
-    cancel() {
-      this.breweryToUpdate = {};
-      this.$store.commit("TOGGLE_UPDATE_BREWERY");
+    hideForm() {
+      this.$emit("hideForm");
     },
     deactivate() {
       if (confirm("Are you sure you want to permanently delete this brewery?"))
@@ -106,21 +131,36 @@ export default {
 </script>
 
 <style>
-.update-form {
-  margin-left: 72px;
-  border: 2px solid black;
-  border-radius: 15px;
-  background-color: rgb(247, 221, 104);
-  font-weight: bolder;
-  font-size: 17px;
-  padding: 1%;
-  padding-left: 3%;
-  border-bottom: 6px solid black;
-  border-right: 6px solid black;
-  border-top: 0px;
-  border-left: 0px;
-  filter: blur(0px);
-  opacity: 90%;
-  width: 500px;
+#update-brewery-blurb-form {
+  padding: 5% 20%;
+}
+
+#update-brewery-form {
+  display: flex;
+  flex-direction: column;
+
+  padding: 0% 5%;
+}
+
+.update-brewery-item {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 3%;
+}
+
+#update-city-state-zip {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.update-city-state-zip-input {
+  flex-grow: 1;
+}
+
+#update-brewery-submission-bar {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 </style>

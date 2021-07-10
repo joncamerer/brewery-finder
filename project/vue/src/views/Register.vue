@@ -9,9 +9,9 @@
           {{ registrationErrorMsg }}
         </div>
         <div class="registration-item">
-          <label for="username">Username:</label>
+          <label for="registration-username">Username:</label>
           <input
-            id="username"
+            id="registration-username"
             type="text"
             placeholder="Username"
             v-model="user.username"
@@ -20,17 +20,17 @@
           />
         </div>
         <div class="registration-item">
-          <label for="password">Password:</label>
+          <label for="registration-password">Password:</label>
           <div>
             <input
-              id="password"
+              id="registration-password"
               type="password"
               placeholder="Password"
               v-model="user.password"
               required
             />
             <input
-              id="confirmPassword"
+              id="registration-confirm-password"
               type="password"
               placeholder="Confirm Password"
               v-model="user.confirmPassword"
@@ -39,8 +39,8 @@
           </div>
         </div>
         <div class="registration-item">
-          <label for="account-type">Account Type:</label>
-          <select id="account-type" v-model="user.accountType">
+          <label for="registration-account-type">Account Type:</label>
+          <select id="registration-account-type" v-model="user.accountType">
             <option value="">--Please select a role</option>
             <option value="Beer Lover">Beer Lover</option>
             <option value="Brewer">Brewer</option>
@@ -48,9 +48,9 @@
           </select>
         </div>
         <div class="registration-item">
-          <label for="user-location">Location:</label>
+          <label for="registration-user-location">Location:</label>
           <input
-            id="user-location"
+            id="registration-user-location"
             type="text"
             placeholder="Location"
             v-model="user.userLocation"

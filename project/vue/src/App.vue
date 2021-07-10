@@ -182,6 +182,10 @@ export default {};
   margin-left: 30px;
 }
 
+.hidden-label {
+  display: none;
+}
+
 body {
   background-color: var(--color-one);
   font-family: "Helvitica";
