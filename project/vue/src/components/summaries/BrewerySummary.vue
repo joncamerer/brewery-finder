@@ -1,8 +1,8 @@
 <template>
   <div
     id="brewery-summary"
-    @mouseover="showButtons = true"
-    @mouseleave="showButtons = false"
+    v-on:mouseover="showButtons = true"
+    v-on:mouseleave="showButtons = false"
   >
     <div id="brewery-summary-info">
       <h1 class="summary-title">{{ brewery.breweryName }}</h1>
@@ -19,9 +19,9 @@
         :to="{ name: 'breweryDetails', params: { id } }"
         v-if="$store.state.token != ''"
       >
-        <button id="brewery-details-button">View Details</button>
+        <button id="brewery-details-button" type="button">View Details</button>
       </router-link>
-      <button v-on:click="redirectLogin()" v-else>
+      <button type="button" v-on:click="redirectLogin()" v-else>
         Log in to View Details
       </button>
     </div>
