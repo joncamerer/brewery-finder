@@ -16,27 +16,33 @@
           <p class="summary-list-item">{{ beer.beerAbv + "%" }}</p>
         </div>
       </div>
-      <div id="view-beer-details-holder" v-show="!showButtons"></div>
-      <div id="view-beer-details-button" v-show="showButtons">
-        <button type="button" v-on:click="toggleDetails()">
-          {{ showDetails ? "Hide details" : "View Details" }}
-        </button>
+
+      <div class="button-size" v-show="!showButtons"></div>
+      <div id="view-beer-details-button" v-show="showButtons && !showDetails">
+        <button type="button" v-on:click="toggleDetails()">View Details</button>
       </div>
     </div>
 
-    <div id="beer-summary-info-ratings" v-show="showDetails">
-      <beer-info v-bind:beer="beer" v-bind:brewerId="brewerId" />
+    <div id="beer-summary-description-reviews" v-show="showDetails">
+      <beer-description v-bind:beer="beer" v-bind:brewerId="brewerId" />
       <review-list v-bind:beer="beer" />
+    </div>
+
+    <div id="beer-summary-bottom-button" v-show="showDetails">
+      <div class="button-size"></div>
+      <button class="button-size" type="button" v-on:click="toggleDetails()">
+        Hide Details
+      </button>
     </div>
   </div>
 </template>
 
 <script>
-import BeerInfo from "@/components/summaries/BeerInfo.vue";
+import BeerDescription from "@/components/summaries/BeerDescription.vue";
 import ReviewList from "@/components/lists/ReviewList.vue";
 
 export default {
-  components: { BeerInfo, ReviewList },
+  components: { BeerDescription, ReviewList },
   data() {
     return {
       showDetails: false,
@@ -91,7 +97,7 @@ export default {
   display: flex;
 }
 
-#view-beer-details-holder {
+.view-beer-details-holder {
   width: 90px;
 }
 
@@ -103,11 +109,26 @@ export default {
   min-width: 90px;
 }
 
-#beer-summary-info-ratings {
+#beer-summary-description-reviews {
   display: flex;
 }
 
 #review-list {
   flex-grow: 1;
+}
+
+#hide-beer-details-button {
+  height: 116px;
+  width: 90px;
+}
+
+.button-size {
+  height: 116px;
+  width: 90px;
+}
+
+#beer-summary-bottom-button {
+  display: flex;
+  justify-content: space-between;
 }
 </style>

@@ -51,21 +51,17 @@
 
 <script>
 import beerService from "@/services/BeerService";
+
 export default {
   data() {
     return {
       newBeer: {
-        beerName: "",
-        beerStyle: "",
-        beerDescription: "",
-        beerAbv: "",
-        breweryId: this.breweryNumber,
-        breweryImage: "",
+        breweryId: this.breweryId,
       },
     };
   },
   props: {
-    breweryNumber: Number,
+    breweryId: Number,
   },
   methods: {
     addBeer() {

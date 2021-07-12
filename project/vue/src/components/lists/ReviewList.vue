@@ -19,16 +19,17 @@
     </div>
 
     <div v-else>
-      <h6>
-        Average Rating:
-        <div class="rating">{{ averageRating }}</div>
-      </h6>
+      <div id="review-average-rating-bar">
+        <h1 class="summary-title">Rating</h1>
+        <p id="average-rating" class="summary-text">{{ averageRating }}</p>
+      </div>
 
       <p
         v-for="review in reviews"
         v-bind:key="review.id"
         v-bind:review="review"
-        class="reviews1"
+        id="review-text"
+        class="summary-text"
       >
         - {{ review.reviewText }}
       </p>
@@ -77,13 +78,17 @@ export default {
 </script>
 
 <style>
-.rating {
-  color: rgb(223, 212, 62);
-  font-weight: bolder;
-  align-items: center;
+#review-average-rating-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+#average-rating {
   border: 6px ridge green;
-  margin-right: 92%;
-  padding: 0.5%;
-  font-size: 30px;
+}
+
+#review-text {
+  padding-bottom: 1%;
 }
 </style>

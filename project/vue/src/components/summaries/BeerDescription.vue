@@ -1,5 +1,5 @@
 <template>
-  <div id="beer-info">
+  <div id="beer-description">
     <div class="list-title-bar">
       <h1 class="list-title">Description</h1>
       <button
@@ -12,10 +12,11 @@
       </button>
     </div>
 
-    <div v-if="showUpdateDetails">
-      <update-beer-form v-bind:beer="beer" v-on:hideForm="toggleUpdateBeer()" />
-    </div>
-
+    <update-beer-form
+      v-if="showUpdateDetails"
+      v-bind:beer="beer"
+      v-on:hideForm="toggleUpdateBeer()"
+    />
     <p v-else class="summary-text">{{ beer.beerDescription }}</p>
   </div>
 </template>
@@ -64,8 +65,10 @@ export default {
 </script>
 
 <style>
-#beer-info {
-  min-width: 400px;
-  max-width: 400px;
+#beer-description {
+  position: relative;
+
+  min-width: 33%;
+  max-width: 33%;
 }
 </style>

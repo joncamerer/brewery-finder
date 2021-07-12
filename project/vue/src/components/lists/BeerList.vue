@@ -15,7 +15,7 @@
 
     <div id="new-beer-form-box" v-if="showAddBeer">
       <new-beer-form
-        v-bind:breweryNumber="breweryId"
+        v-bind:breweryId="breweryId"
         v-on:hideForm="toggleAddBeer()"
       />
     </div>
@@ -35,10 +35,13 @@
 import BeerSummary from "@/components/summaries/BeerSummary.vue";
 import NewBeerForm from "@/components/forms/NewBeerForm.vue";
 
-import BeerService from "@/services/BeerService";
+import beerService from "@/services/BeerService";
 
 export default {
-  components: { BeerSummary, NewBeerForm },
+  components: {
+    BeerSummary,
+    NewBeerForm,
+  },
   props: {
     brewery: Object,
   },
@@ -50,7 +53,7 @@ export default {
     };
   },
   created() {
-    BeerService.listByBreweryId(this.breweryId).then((response) => {
+    beerService.listByBreweryId(this.breweryId).then((response) => {
       this.allBeers = response.data;
     });
   },
