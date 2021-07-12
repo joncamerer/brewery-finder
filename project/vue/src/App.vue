@@ -26,42 +26,10 @@ export default {};
   margin-right: 6%;
 }
 
-.events {
-  color: gold;
-}
-
-.update-form {
-  /* margin-left:10%; */
-  border: 2px solid black;
-  border-radius: 15px;
-  background-color: rgb(247, 221, 104);
-  font-weight: bolder;
-  font-size: 17px;
-  padding: 1%;
-  padding-left: 3%;
-  border-bottom: 6px solid black;
-  border-right: 6px solid black;
-  border-top: 0px;
-  border-left: 0px;
-  filter: blur(0px);
-  opacity: 90%;
-  width: 500px;
-  margin-left: 40px;
-}
-
-.text {
-  color: white;
-}
-
-.reviews {
-  color: gold;
-}
-
 .beer-menu {
   margin: 1%;
   padding: 3%;
 }
-
 /* STYLES WHICH BELONG IN APP.JS */
 :root {
   --color-one: #fff897;

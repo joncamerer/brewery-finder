@@ -77,22 +77,6 @@ export default {
 </script>
 
 <style>
-.reviews {
-  opacity: 100%;
-}
-
-.reviews1 {
-  font-size: 25px;
-  background: transparent;
-  background-color: white;
-  opacity: 90%;
-  color: black;
-  padding: 2%;
-  font-weight: bolder;
-
-  border-radius: 20px;
-}
-
 .rating {
   color: rgb(223, 212, 62);
   font-weight: bolder;

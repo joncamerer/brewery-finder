@@ -106,4 +106,8 @@ export default {
 #beer-summary-info-ratings {
   display: flex;
 }
+
+#review-list {
+  flex-grow: 1;
+}
 </style>
