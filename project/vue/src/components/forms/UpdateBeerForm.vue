@@ -1,64 +1,120 @@
 <template>
-  <div>
-    <button v-on:click="showForm = !showForm">Update A Beer</button>
+  <div id="update-brewery-blurb-form">
+    <p>Update this beer's information</p>
+    <form id="update-beer-form" v-on:submit.prevent="updateBeer()">
+      <div class="update-beer-item">
+        <label class="hidden-label" for="update-beer-name">Beer Name</label>
+        <input
+          id="update-beer-name"
+          type="text"
+          placeholder="Beer Name"
+          v-model="newBeer.beerName"
+        />
+      </div>
 
-    <form v-show="showForm" v-on:submit.prevent="updateBeer()">
-      <label for="beer-name">beer Name</label>
-      <input type="text" name="beer-name" v-model="newBeer.beerName" />
+      <div class="update-beer-item">
+        <label class="hidden-label" for="update-beer-abv">Beer ABV</label>
+        <input
+          id="update-beer-abv"
+          type="text"
+          placeholder="ABV"
+          v-model="newBeer.beerAbv"
+        />
+      </div>
 
-      <label for="brewer-id">beer ID</label>
-      <input
-        v-model="newBeer.brewerId"
-        type="text"
-        placeholder="do I work?"
-        name="brewer-id"
-      />
+      <div class="update-beer-item">
+        <label class="hidden-label" for="update-beer-style">Beer Style</label>
+        <input
+          id="update-beer-style"
+          type="text"
+          placeholder="Style"
+          v-model="newBeer.beerStyle"
+        />
+      </div>
 
-      <label for="beer-address"> Address</label>
-      <input
-        v-model="newBeer.beerStreetAddress"
-        type="text"
-        name="beer-address"
-      />
+      <div class="update-beer-item">
+        <label class="hidden-label" for="update-beer-descriptions"
+          >Beer Description</label
+        >
+        <textarea
+          id="update-beer-description"
+          placeholder="Description"
+          v-model="newBeer.beerDescription"
+        />
+      </div>
 
-      <label for="beer-city"> City</label>
-      <input v-model="newBeer.beerCity" type="text" name="beer-city" />
-
-      <label for="beer-state"> State</label>
-      <input v-model="newBeer.beerState" type="text" name="beer-state" />
-
-      <label for="beer-zip">Zip</label>
-      <input v-model="newBeer.beerZipCode" type="text" name="beer-zip" />
-
-      <label for="beer-website">Website</label>
-      <input v-model="newBeer.beerWebsite" type="text" name="beer-website" />
-      <button type="submit" class="btn save">Update</button>
+      <div id="update-beer-submission-bar">
+        <button type="submit">Update</button>
+        <button type="button" v-on:click="hideForm()">Cancel</button>
+        <button type="button" v-on:click="deactivate()">Delete</button>
+      </div>
     </form>
   </div>
 </template>
 
 <script>
-import BeerService from "@/services/BeerService";
+import beerService from "@/services/BeerService";
+
 export default {
+  props: {
+    beer: Object,
+  },
   data() {
     return {
-      showForm: false,
-
       newBeer: {},
     };
   },
+  created() {
+    this.newBeer.beerName = this.beer.beerName;
+    this.newBeer.beerAbv = this.beer.beerAbv;
+    this.newBeer.beerStyle = this.beer.beerStyle;
+    this.newBeer.beerDescription = this.beer.beerDescription;
+  },
   methods: {
     updateBeer() {
-      BeerService.update(this.newBeer).then((response) => {
-        if (response.status === 201) {
-          this.showForm = false;
-          this.newBeer = {};
+      this.newBeer.active = this.beer.active;
+      this.newBeer.beerImage = this.beer.beerImage;
+      this.newBeer.breweryId = this.beer.breweryId;
+      this.newBeer.id = this.beer.id;
+
+      beerService.update(this.beer.id, this.newBeer).then((response) => {
+        if (response.status === 200) {
+          this.$router.go();
         }
       });
+    },
+    hideForm() {
+      this.$emit("hideForm");
+    },
+    deactivate() {
+      if (confirm("Are you sure you want to permanently delete this beer?"))
+        beerService.delete(this.beer.id).then((response) => {
+          if (response.status === 200) {
+            this.$router.go();
+          }
+        });
     },
   },
 };
 </script>
 
 <style>
+#update-beer-form {
+  display: flex;
+  flex-direction: column;
+
+  padding: 0% 5%;
+}
+
+.update-beer-item {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 3%;
+}
+
+#update-beer-submission-bar {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
 </style>

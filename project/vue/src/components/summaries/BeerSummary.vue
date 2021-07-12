@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import BeerDetail from "@/components/BeerDetail.vue";
+import BeerDetail from "@/components/summaries/BeerDetail.vue";
 
 export default {
   components: { BeerDetail },

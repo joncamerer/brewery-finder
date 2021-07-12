@@ -9,19 +9,6 @@ export default {};
 </script>
 
 <style>
-.beer-des {
-  font-size: 25px;
-  background: transparent;
-  background-color: white;
-  opacity: 88%;
-  color: black;
-  padding: 2%;
-  font-weight: bolder;
-  text-decoration: underline;
-
-  border-radius: 20px;
-}
-
 .reviews {
   font-size: 1.5em;
 }

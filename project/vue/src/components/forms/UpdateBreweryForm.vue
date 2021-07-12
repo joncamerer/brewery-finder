@@ -90,7 +90,9 @@
 import breweryService from "@/services/BreweryService";
 
 export default {
-  props: { brewery: Object },
+  props: {
+    brewery: Object,
+  },
   data() {
     return {
       breweryToUpdate: {
