@@ -23,19 +23,20 @@
         </button>
       </div>
     </div>
-    <beer-detail
-      v-show="showDetails"
-      v-bind:beer="beer"
-      v-bind:brewerId="brewerId"
-    />
+
+    <div id="beer-summary-info-ratings" v-show="showDetails">
+      <beer-info v-bind:beer="beer" v-bind:brewerId="brewerId" />
+      <review-list v-bind:beer="beer" />
+    </div>
   </div>
 </template>
 
 <script>
-import BeerDetail from "@/components/summaries/BeerDetail.vue";
+import BeerInfo from "@/components/summaries/BeerInfo.vue";
+import ReviewList from "@/components/lists/ReviewList.vue";
 
 export default {
-  components: { BeerDetail },
+  components: { BeerInfo, ReviewList },
   data() {
     return {
       showDetails: false,
@@ -100,5 +101,9 @@ export default {
 
 #view-beer-details-button button {
   min-width: 90px;
+}
+
+#beer-summary-info-ratings {
+  display: flex;
 }
 </style>

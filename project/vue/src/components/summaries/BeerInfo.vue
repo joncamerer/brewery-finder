@@ -1,10 +1,11 @@
 <template>
-  <div id="beer-detail">
+  <div id="beer-info">
     <div class="list-title-bar">
       <h1 class="list-title">Description</h1>
       <button
         class="list-title-button"
         type="button"
+        v-if="$store.state.user.id == brewerId"
         v-on:click="toggleUpdateBeer()"
       >
         {{ showUpdateDetails ? "-" : "+" }}
@@ -14,24 +15,19 @@
     <div v-if="showUpdateDetails">
       <update-beer-form v-bind:beer="beer" v-on:hideForm="toggleUpdateBeer()" />
     </div>
-    <div v-else>
-      <p class="summary-text">{{ beer.beerDescription }}</p>
 
-      <review-list v-bind:beer="beer" />
-    </div>
+    <p v-else class="summary-text">{{ beer.beerDescription }}</p>
   </div>
 </template>
 
 <script>
-import ReviewList from "@/components/lists/ReviewList.vue";
+import UpdateBeerForm from "@/components/forms/UpdateBeerForm.vue";
 
 import beerService from "@/services/BeerService";
 import reviewService from "@/services/ReviewService";
-import UpdateBeerForm from "../forms/UpdateBeerForm.vue";
 
 export default {
   components: {
-    ReviewList,
     UpdateBeerForm,
   },
   props: {

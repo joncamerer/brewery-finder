@@ -9,10 +9,6 @@ export default {};
 </script>
 
 <style>
-.reviews {
-  font-size: 1.5em;
-}
-
 .events-list {
   grid-area: events-list;
   background: transparent;
@@ -64,31 +60,6 @@ export default {};
 .beer-menu {
   margin: 1%;
   padding: 3%;
-}
-
-.reviews {
-  opacity: 100%;
-}
-
-.reviews1 {
-  font-size: 25px;
-  background: transparent;
-  background-color: white;
-  opacity: 90%;
-  color: black;
-  padding: 2%;
-  font-weight: bolder;
-
-  border-radius: 20px;
-}
-.rating {
-  color: rgb(223, 212, 62);
-  font-weight: bolder;
-  align-items: center;
-  border: 6px ridge green;
-  margin-right: 92%;
-  padding: 0.5%;
-  font-size: 30px;
 }
 
 /* STYLES WHICH BELONG IN APP.JS */

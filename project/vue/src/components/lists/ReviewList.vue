@@ -1,21 +1,38 @@
 <template>
-  <div class="reviews">
-    <h2>REVIEWS</h2>
-    <new-review-form v-bind:beer="beer.id" />
+  <div id="review-list">
+    <div class="list-title-bar">
+      <h1 class="list-title">Reviews</h1>
+      <button
+        class="list-title-button"
+        type="button"
+        v-on:click="toggleAddReview()"
+      >
+        {{ showAddReview ? "-" : "+" }}
+      </button>
+    </div>
 
-    <h6>
-      Average Rating:
-      <div class="rating">{{ averageRating }}</div>
-    </h6>
+    <div v-if="showAddReview">
+      <new-review-form
+        v-bind:beerId="beer.id"
+        v-on:hideForm="toggleAddReview()"
+      />
+    </div>
 
-    <p
-      v-for="review in reviews"
-      v-bind:key="review.id"
-      v-bind:review="review"
-      class="reviews1"
-    >
-      - {{ review.reviewText }}
-    </p>
+    <div v-else>
+      <h6>
+        Average Rating:
+        <div class="rating">{{ averageRating }}</div>
+      </h6>
+
+      <p
+        v-for="review in reviews"
+        v-bind:key="review.id"
+        v-bind:review="review"
+        class="reviews1"
+      >
+        - {{ review.reviewText }}
+      </p>
+    </div>
   </div>
 </template>
 
@@ -31,6 +48,7 @@ export default {
   },
   data() {
     return {
+      showAddReview: false,
       reviews: [],
     };
   },
@@ -50,8 +68,38 @@ export default {
       }
     });
   },
+  methods: {
+    toggleAddReview() {
+      this.showAddReview = !this.showAddReview;
+    },
+  },
 };
 </script>
 
 <style>
+.reviews {
+  opacity: 100%;
+}
+
+.reviews1 {
+  font-size: 25px;
+  background: transparent;
+  background-color: white;
+  opacity: 90%;
+  color: black;
+  padding: 2%;
+  font-weight: bolder;
+
+  border-radius: 20px;
+}
+
+.rating {
+  color: rgb(223, 212, 62);
+  font-weight: bolder;
+  align-items: center;
+  border: 6px ridge green;
+  margin-right: 92%;
+  padding: 0.5%;
+  font-size: 30px;
+}
 </style>

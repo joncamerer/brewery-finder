@@ -1,20 +1,34 @@
 <template>
-  <div>
-    <button v-on:click="showForm = !showForm">Add a New Review</button>
-    <form class="reviews-form" v-show="showForm">
-      <label for="star-rating">Star Rating</label>
-      <select name="star-rating" v-model="newReview.starRating">
-        <option value="">--Please select a star rating</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-      </select>
-      <label for="review-text">Leave us a Review!</label>
-      <textarea name="review-text" v-model="newReview.reviewText" />
-      <button typt="submit" v-on:click.prevent="postReview()">Submit</button>
-      <button v-on:click.prevent="showForm = !showForm">Cancel</button>
+  <div id="new-review-blurb-form">
+    <p>Leave us a review</p>
+    <form id="new-review-form" v-on:submit.prevent="addReview()">
+      <div class="new-review-item">
+        <label class="hidden-label" for="new-review-star-rating"
+          >Review Star Rating</label
+        >
+        <select id="new-review-star-rating" v-model="newReview.starRating">
+          <option value="">--Please select a star rating</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+
+      <div class="new-review-item">
+        <label class="hidden-label" for="new-review-text">Review Text</label>
+        <textarea
+          id="new-review-text"
+          placeholder="Review Text"
+          v-model="newReview.reviewText"
+        />
+      </div>
+
+      <div id="new-review-submission-bar">
+        <button type="submit">Submit</button>
+        <button type="button" v-on:click="hideForm()">Cancel</button>
+      </div>
     </form>
   </div>
 </template>
@@ -24,12 +38,9 @@ import reviewService from "@/services/ReviewService";
 export default {
   data() {
     return {
-      showForm: false,
       newReview: {
         beerId: this.beerId,
         reviewerId: this.$store.state.user.id,
-        reviewText: "",
-        starRating: "",
       },
     };
   },
@@ -37,44 +48,35 @@ export default {
     beerId: Number,
   },
   methods: {
-    postReview() {
+    addReview() {
       this.newReview.starRating = parseInt(this.newReview.starRating);
 
       reviewService.create(this.newReview).then((response) => {
         if (response.status === 201) {
-          this.newReview = {
-            beerId: this.beerId,
-            reviewerId: this.$store.state.user.id,
-            reviewText: "",
-            starRating: "",
-          };
           this.$router.go();
         }
       });
+    },
+    hideForm() {
+      this.$emit("hideForm");
     },
   },
 };
 </script>
 
 <style>
-.reviews-form{
-  margin-left: 2px;
-  border: 2px solid black;
-  border-radius: 15px;
-  background-color: rgb(247, 221, 104);
-  font-weight: bolder;
-  font-size: 17px;
-  padding: 2%;
-  padding-left: 3%;
-  border-bottom: 6px solid black;
-  border-right: 6px solid black;
-  border-top: 0px;
-  border-left: 0px;
-  filter: blur(0px);
-  opacity: 90%;
-  width: 500px;
-  color: black;
-  height: 150px;
-  justify-content: center;
+#new-review-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.new-review-item {
+  display: flex;
+  flex-direction: column;
+}
+
+#new-review-submission-bar {
+  display: flex;
+  justify-content: space-around;
 }
 </style>
