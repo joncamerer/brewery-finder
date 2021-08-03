@@ -21,29 +21,43 @@
     <div v-else>
       <div id="review-average-rating-bar">
         <h1 class="summary-title">Rating</h1>
-        <p id="average-rating" class="summary-text">{{ averageRating }}</p>
+        <div id="star-rating">
+          <img
+            class="star"
+            src="@/images/star.png"
+            v-for="n in stars"
+            v-bind:key="n"
+          />
+          <div
+            id="decimal-star"
+            :style="{
+              width: decimalPixels + 'px',
+            }"
+          >
+            <img class="star" src="@/images/star.png" />
+          </div>
+        </div>
       </div>
 
-      <p
-        v-for="review in reviews"
-        v-bind:key="review.id"
-        v-bind:review="review"
-        id="review-text"
-        class="summary-text"
-      >
-        - {{ review.reviewText }}
-      </p>
+      <div v-if="reviews.length > 0">
+        <review-summary
+          v-for="review in reviews"
+          v-bind:key="review.id"
+          v-bind:review="review"
+        />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import NewReviewForm from "@/components/forms/NewReviewForm.vue";
+import ReviewSummary from "@/components/summaries/ReviewSummary.vue";
 
 import reviewService from "@/services/ReviewService";
 
 export default {
-  components: { NewReviewForm },
+  components: { NewReviewForm, ReviewSummary },
   props: {
     beer: Object,
   },
@@ -59,7 +73,17 @@ export default {
       this.reviews.forEach((review) => {
         total += review.starRating;
       });
-      return (total / this.reviews.length).toFixed(2);
+
+      if (total > 0.0) {
+        return (total / this.reviews.length).toFixed(2);
+      }
+      return total;
+    },
+    stars() {
+      return Math.floor(this.averageRating);
+    },
+    decimalPixels() {
+      return (this.averageRating - this.stars) * 40;
     },
   },
   created() {
@@ -84,11 +108,20 @@ export default {
   align-items: stretch;
 }
 
-#average-rating {
-  border: 6px ridge green;
+#star-rating {
+  display: flex;
+  width: 255px;
 }
 
-#review-text {
-  padding-bottom: 1%;
+.star {
+  max-height: 40px;
+}
+
+#decimal-star {
+  overflow: hidden;
+}
+
+#average-rating {
+  border: 6px ridge green;
 }
 </style>

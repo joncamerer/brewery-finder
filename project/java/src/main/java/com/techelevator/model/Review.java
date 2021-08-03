@@ -12,6 +12,7 @@ public class Review {
     @NotNull(message = "Reviewer ID field must not be blank")
     @Min(value = 1, message = "Invalid User ID")
     private Long reviewerId;
+    private String reviewerUsername;
     @NotBlank(message = "Review body must not be blank")
     private String reviewText;
     @NotNull(message = "Rating field cannot be blank")
@@ -54,6 +55,14 @@ public class Review {
 
     public void setReviewerId(Long reviewerId) {
         this.reviewerId = reviewerId;
+    }
+
+    public String getReviewerUsername() {
+        return reviewerUsername;
+    }
+
+    public void setReviewerUsername(String reviewerUsername) {
+        this.reviewerUsername = reviewerUsername;
     }
 
     public String getReviewText() {

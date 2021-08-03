@@ -51,13 +51,15 @@ public class ReviewSqlDAO implements ReviewDAO {
     @Override
     public List<Review> listByBeerId(Long beerId){
         List<Review> reviews = new ArrayList<>();
-        String sql = "SELECT reviews_id, beer_id, reviewer_id, review_text, star_rating, active " +
-                     "FROM reviews WHERE beer_id = ? AND active = true";
+        String sql = "SELECT r.reviews_id, r.beer_id, r.reviewer_id, u.username, r.review_text, r.star_rating, r.active " +
+                     "FROM reviews r " +
+                     "JOIN users u ON u.user_id = r.reviewer_id " +
+                     "WHERE beer_id = ? AND active = true";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, beerId);
 
         while (results.next()) {
-            Review review = mapRowToReview(results);
+            Review review = mapRowToUserReview(results);
             reviews.add(review);
         }
 
@@ -108,6 +110,20 @@ public class ReviewSqlDAO implements ReviewDAO {
         review.setId(results.getLong("reviews_id"));
         review.setBeerId(results.getLong("beer_id"));
         review.setReviewerId(results.getLong("reviewer_id"));
+        review.setReviewText(results.getString("review_text"));
+        review.setStarRating(results.getBigDecimal("star_rating"));
+        review.setActive(results.getBoolean("active"));
+
+        return review;
+    }
+
+    public Review mapRowToUserReview(SqlRowSet results) {
+        Review review = new Review();
+
+        review.setId(results.getLong("reviews_id"));
+        review.setBeerId(results.getLong("beer_id"));
+        review.setReviewerId(results.getLong("reviewer_id"));
+        review.setReviewerUsername(results.getString("username"));
         review.setReviewText(results.getString("review_text"));
         review.setStarRating(results.getBigDecimal("star_rating"));
         review.setActive(results.getBoolean("active"));
