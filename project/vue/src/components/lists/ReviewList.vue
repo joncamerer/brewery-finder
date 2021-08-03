@@ -46,6 +46,9 @@
           v-bind:review="review"
         />
       </div>
+      <div v-else>
+        <p>Be the first to add a review for this beer!</p>
+      </div>
     </div>
   </div>
 </template>
