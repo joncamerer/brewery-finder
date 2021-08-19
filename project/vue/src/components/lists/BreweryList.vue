@@ -21,28 +21,26 @@
     </div>
 
     <div id="list-breweries-box" v-else>
-      <div ref="searchBar">
-        <div class="search-bar">
-          <label for="search-name">Search: </label>
-          <input
-            id="search-name"
-            type="text"
-            placeholder="Brewery Name"
-            v-model="filter.breweryName"
-          />
-          <input
-            id="search-city"
-            type="text"
-            placeholder="City"
-            v-model="filter.breweryCity"
-          />
-          <input
-            id="search-state"
-            type="text"
-            placeholder="State"
-            v-model="filter.breweryState"
-          />
-        </div>
+      <div class="search-bar">
+        <label for="search-name">Search: </label>
+        <input
+          id="search-name"
+          type="text"
+          placeholder="Brewery Name"
+          v-model="filter.breweryName"
+        />
+        <input
+          id="search-city"
+          type="text"
+          placeholder="City"
+          v-model="filter.breweryCity"
+        />
+        <input
+          id="search-state"
+          type="text"
+          placeholder="State"
+          v-model="filter.breweryState"
+        />
       </div>
 
       <div id="brewery-card-scrollbox">
@@ -116,7 +114,6 @@ export default {
 #brewery-list {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - (170px + 2%));
 }
 
 #new-brewery-form-box {
@@ -126,7 +123,8 @@ export default {
 }
 
 #list-breweries-box {
-  height: calc(100vh - (170px + 2%));
+  display: flex;
+  flex-direction: column;
 }
 
 .search-bar {
@@ -142,8 +140,8 @@ export default {
 #brewery-card-scrollbox {
   display: flex;
   flex-direction: column;
-
-  overflow-y: scroll;
   max-height: calc(100vh - (200px + 51.75px + 41.75px));
+
+  overflow: scroll;
 }
 </style>

@@ -34,11 +34,15 @@ export default {
 
 <style>
 #events-list {
-  height: max-content;
+  display: flex;
+  flex-direction: column;
 }
 
 #events-scrollbox {
-  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
   height: calc(100vh - (216px + 35vh + 51.75px));
+
+  overflow: scroll;
 }
 </style>

@@ -1,9 +1,13 @@
 <template>
-  <div id="home-grid">
+  <div id="home-box">
     <Header />
-    <brewery-list />
-    <top-rated />
-    <events-list />
+    <div id="home-body-box">
+      <brewery-list />
+      <div id="home-sidebar">
+        <top-rated />
+        <events-list />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -25,7 +29,8 @@ export default {
 }
 
 #brewery-list {
-  grid-area: breweries;
+  width: 60vw;
+  margin-right: 10px;
 }
 
 #top-rated-list {
@@ -36,17 +41,17 @@ export default {
   grid-area: events;
 }
 
-#home-grid {
-  display: grid;
-  min-height: 100vh;
-  max-height: 100vh;
-  grid-gap: 1%;
+#home-box {
+  display: flex;
+  flex-direction: column;
+}
 
-  grid-template-columns: 3fr 2fr;
-  grid-template-rows: 170px 38vh auto;
-  grid-template-areas:
-    "header header"
-    "breweries top-rated"
-    "breweries events";
+#home-body-box {
+  display: flex;
+}
+
+#home-sidebar {
+  display: flex;
+  flex-direction: column;
 }
 </style>

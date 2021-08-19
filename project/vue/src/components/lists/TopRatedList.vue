@@ -29,8 +29,17 @@ export default {
 </script>
 
 <style>
+#top-rated-list {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
 #top-rated-scrollbox {
-  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
   height: 30vh;
+
+  overflow: scroll;
 }
 </style>

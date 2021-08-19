@@ -34,12 +34,21 @@ export default {};
   display: none;
 }
 
+html {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
 body {
+  display: flex;
+
   background-color: var(--color-one);
   font-family: "Helvitica";
+}
 
-  margin: 0;
-  min-height: 100vh;
+#app {
+  display: flex;
 }
 
 textarea {
