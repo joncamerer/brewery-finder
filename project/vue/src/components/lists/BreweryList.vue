@@ -20,7 +20,7 @@
       <new-brewery-form v-on:hideForm="toggleAddBrewery" />
     </div>
 
-    <div id="list-breweries-box" v-else>
+    <div id="list-breweries-scroll" v-else>
       <div class="search-bar">
         <label for="search-name">Search: </label>
         <input
@@ -43,13 +43,11 @@
         />
       </div>
 
-      <div id="brewery-card-scrollbox">
-        <brewery-summary
-          v-for="brewery in filteredBreweries"
-          v-bind:key="brewery.id"
-          v-bind:brewery="brewery"
-        />
-      </div>
+      <brewery-summary
+        v-for="brewery in filteredBreweries"
+        v-bind:key="brewery.id"
+        v-bind:brewery="brewery"
+      />
     </div>
   </div>
 </template>
@@ -114,6 +112,7 @@ export default {
 #brewery-list {
   display: flex;
   flex-direction: column;
+  width: 60vw;
 }
 
 #new-brewery-form-box {
@@ -122,26 +121,20 @@ export default {
   background-color: var(--color-three);
 }
 
-#list-breweries-box {
-  display: flex;
-  flex-direction: column;
+#list-breweries-scroll {
+  overflow: scroll;
 }
 
 .search-bar {
   display: flex;
   justify-content: space-around;
+  position: sticky;
+  top: 0px;
+
   margin-bottom: 2%;
   padding: 1.5%;
 
   background-color: var(--color-seven);
   color: white;
-}
-
-#brewery-card-scrollbox {
-  display: flex;
-  flex-direction: column;
-  max-height: calc(100vh - (200px + 51.75px + 41.75px));
-
-  overflow: scroll;
 }
 </style>

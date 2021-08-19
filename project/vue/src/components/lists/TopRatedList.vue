@@ -33,13 +33,11 @@ export default {
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
+
+  height: 49%;
 }
 
 #top-rated-scrollbox {
-  display: flex;
-  flex-direction: column;
-  height: 30vh;
-
   overflow: scroll;
 }
 </style>

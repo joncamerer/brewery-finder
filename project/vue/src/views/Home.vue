@@ -2,7 +2,10 @@
   <div id="home-box">
     <Header />
     <div id="home-body-box">
-      <brewery-list />
+      <div id="home-main">
+        <brewery-list />
+      </div>
+
       <div id="home-sidebar">
         <top-rated />
         <events-list />
@@ -24,30 +27,24 @@ export default {
 </script>
 
 <style>
-#header {
-  grid-area: header;
-}
-
-#brewery-list {
-  width: 60vw;
-  margin-right: 10px;
-}
-
-#top-rated-list {
-  grid-area: top-rated;
-}
-
-#events-list {
-  grid-area: events;
-}
-
 #home-box {
   display: flex;
   flex-direction: column;
 }
 
+#header {
+  height: 20%;
+}
+
 #home-body-box {
   display: flex;
+  flex-direction: row;
+  height: 80%;
+}
+
+#home-main {
+  display: flex;
+  margin-right: 10px;
 }
 
 #home-sidebar {
